@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Φ Performance Marketing — Arquitectura Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #151515;
+    --black-deep: #020202;
+    --cream: #FFFCF2;
+    --gold: #DDD78D;
+    --blue-hi: #0E34A0;
+    --blue-soft: #7C98B3;
+    --font-serif: 'Cardo', Georgia, serif;
+    --font-sans: 'Montserrat', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(21,21,21,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(221,215,141,0.12);
+  }
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .nav-logo .phi { color: var(--gold); font-size: 1.4rem; }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,252,242,0.6); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-family: var(--font-sans); font-size: 0.72rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: transparent; border: 1px solid var(--gold);
+    color: var(--gold); padding: 0.6rem 1.4rem;
+    cursor: pointer; transition: all 0.3s; text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-text {
+    position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
+    font-family: var(--font-serif); font-size: clamp(8rem, 18vw, 22rem);
+    color: rgba(221,215,141,0.04); line-height: 1; pointer-events: none;
+    user-select: none;
+  }
+  .hero-tag {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+  }
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 1.08;
+    max-width: 800px;
+    margin-bottom: 2rem;
+  }
+  .hero-headline em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 0.95rem; font-weight: 300;
+    color: rgba(255,252,242,0.65);
+    max-width: 480px; line-height: 1.8;
+    margin-bottom: 3.5rem;
+  }
+  .hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: var(--font-sans); font-size: 0.72rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: var(--gold); color: var(--black);
+    border: none; padding: 1rem 2.2rem;
+    cursor: pointer; transition: all 0.3s; text-decoration: none;
+    font-weight: 500; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--cream); }
+  .btn-ghost {
+    font-family: var(--font-sans); font-size: 0.72rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: transparent; color: var(--cream);
+    border: 1px solid rgba(255,252,242,0.3); padding: 1rem 2.2rem;
+    cursor: pointer; transition: all 0.3s; text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--cream); }
+
+  /* DIVIDER */
+  .section-divider {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(221,215,141,0.3), transparent);
+  }
+
+  /* SECTION BASE */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15; margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* CONCEPTO */
+  .concepto {
+    background: var(--cream); color: var(--black);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    align-items: start;
+  }
+  .concepto .section-label { color: var(--blue-hi); }
+  .concepto .section-label::before { background: var(--blue-hi); }
+  .concepto .section-title { color: var(--black); }
+  .concepto-visual {
+    display: flex; justify-content: center; align-items: center;
+    position: relative; min-height: 360px;
+  }
+  .phi-symbol {
+    font-family: var(--font-serif);
+    font-size: clamp(8rem, 14vw, 14rem);
+    color: var(--black); line-height: 1;
+    position: relative; z-index: 2;
+  }
+  .phi-ring {
+    position: absolute;
+    width: clamp(180px, 25vw, 280px);
+    height: clamp(180px, 25vw, 280px);
+    border: 1px solid rgba(14,52,160,0.3);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+  }
+  .phi-ring-2 {
+    width: clamp(220px, 32vw, 340px);
+    height: clamp(220px, 32vw, 340px);
+    border-color: rgba(14,52,160,0.15);
+    animation-duration: 30s;
+    animation-direction: reverse;
+  }
+  @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .concepto-text p {
+    font-size: 0.95rem; color: rgba(21,21,21,0.7);
+    line-height: 1.9; margin-bottom: 1.5rem;
+  }
+  .concepto-pillars {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .pillar { border-left: 2px solid var(--blue-hi); padding-left: 1rem; }
+  .pillar-name {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 600; color: var(--blue-hi); margin-bottom: 0.3rem;
+  }
+  .pillar-desc { font-size: 0.82rem; color: rgba(21,21,21,0.6); line-height: 1.5; }
+
+  /* PROCESO */
+  .proceso { background: var(--black); }
+  .proceso-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; margin-top: 4rem;
+    border: 1px solid rgba(221,215,141,0.15);
+  }
+  .proceso-step {
+    padding: 2.5rem;
+    border-right: 1px solid rgba(221,215,141,0.15);
+    position: relative; transition: background 0.4s;
+  }
+  .proceso-step:last-child { border-right: none; }
+  .proceso-step:hover { background: rgba(221,215,141,0.04); }
+  .paso-num {
+    font-family: var(--font-serif); font-size: 3.5rem;
+    color: rgba(221,215,141,0.2); line-height: 1;
+    margin-bottom: 1.2rem; display: block;
+  }
+  .paso-title {
+    font-family: var(--font-serif); font-size: 1.3rem;
+    margin-bottom: 0.8rem; color: var(--cream);
+  }
+  .paso-title em { font-style: italic; color: var(--gold); }
+  .paso-desc { font-size: 0.82rem; color: rgba(255,252,242,0.5); line-height: 1.8; }
+  .paso-tag {
+    margin-top: 1.5rem;
+    font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); opacity: 0.7;
+  }
+
+  /* SERVICIOS */
+  .servicios { background: #0f0f0f; }
+  .servicios-intro { max-width: 600px; margin-bottom: 4rem; }
+  .servicios-intro p {
+    font-size: 0.92rem; color: rgba(255,252,242,0.55); line-height: 1.9; margin-top: 1rem;
+  }
+  .servicios-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: rgba(221,215,141,0.1);
+  }
+  .servicio-card {
+    background: #0f0f0f; padding: 3rem 2.5rem;
+    transition: background 0.4s; position: relative; overflow: hidden;
+  }
+  .servicio-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  }
+  .servicio-card:hover::before { transform: scaleX(1); }
+  .servicio-card:hover { background: rgba(221,215,141,0.03); }
+  .servicio-icon {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem; font-weight: 500;
+  }
+  .servicio-title {
+    font-family: var(--font-serif); font-size: 1.5rem;
+    margin-bottom: 1rem; color: var(--cream); line-height: 1.2;
+  }
+  .servicio-desc {
+    font-size: 0.83rem; color: rgba(255,252,242,0.5);
+    line-height: 1.85; margin-bottom: 1.8rem;
+  }
+  .servicio-items { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .servicio-items li {
+    font-size: 0.78rem; color: rgba(255,252,242,0.4);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .servicio-items li::before {
+    content: ''; width: 16px; height: 1px; background: var(--gold);
+    flex-shrink: 0; opacity: 0.6;
+  }
+
+  /* KOMMO BADGE */
+  .kommo-badge {
+    display: block; margin-top: 1.8rem;
+    width: 130px; opacity: 0.9;
+    border-radius: 8px; overflow: hidden;
+  }
+
+  /* CONCEPTO — valores integrados */
+  .concepto-valores {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem; margin-top: 3.5rem; grid-column: 1 / -1;
+  }
+  .valor-card { padding: 2rem 0; border-top: 2px solid rgba(21,21,21,0.12); }
+  .valor-num {
+    font-family: var(--font-serif); font-size: 2.5rem;
+    color: rgba(14,52,160,0.15); line-height: 1; margin-bottom: 1rem;
+  }
+  .valor-title {
+    font-family: var(--font-serif); font-size: 1.05rem;
+    color: var(--black); margin-bottom: 0.6rem;
+  }
+  .valor-desc { font-size: 0.78rem; color: rgba(21,21,21,0.55); line-height: 1.75; }
+
+
+  /* CTA */
+  .cta-section {
+    background: var(--gold); color: var(--black);
+    text-align: center; padding: 7rem 4rem;
+  }
+  .cta-label {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(21,21,21,0.75); margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  .cta-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1; margin-bottom: 1.5rem; color: var(--black);
+  }
+  .cta-sub {
+    font-size: 0.95rem; color: rgba(21,21,21,0.65);
+    max-width: 500px; margin: 0 auto 3rem; line-height: 1.8;
+  }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-dark {
+    font-family: var(--font-sans); font-size: 0.72rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: var(--black); color: var(--gold);
+    border: none; padding: 1rem 2.2rem;
+    cursor: pointer; transition: all 0.3s; text-decoration: none;
+    font-weight: 500; display: inline-block;
+  }
+  .btn-dark:hover { background: var(--black-deep); }
+  .btn-outline-dark {
+    font-family: var(--font-sans); font-size: 0.72rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: var(--blue-hi); color: var(--cream);
+    border: 1px solid var(--blue-hi); padding: 1rem 2.2rem;
+    cursor: pointer; transition: all 0.3s; text-decoration: none;
+    display: inline-block; font-weight: 500;
+  }
+  .btn-outline-dark:hover { background: #0c2d8a; border-color: #0c2d8a; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black-deep); padding: 3rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 2rem;
+    border-top: 1px solid rgba(221,215,141,0.1);
+  }
+  .footer-logo {
+    font-family: var(--font-serif); font-size: 1.1rem;
+    color: rgba(255,252,242,0.4); display: flex; align-items: center; gap: 0.5rem;
+  }
+  .footer-logo .phi { color: var(--gold); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,252,242,0.25); text-decoration: none; transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.65rem; color: rgba(255,252,242,0.2); letter-spacing: 0.08em; }
+
+  /* FLOATING WA */
+  .wa-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    width: 68px; height: 68px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+  .wa-float svg { width: 32px; height: 32px; fill: white; }
+  .wa-tooltip {
+    position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+    background: var(--black); color: var(--cream);
+    font-size: 0.72rem; letter-spacing: 0.05em;
+    padding: 0.5rem 1rem; white-space: nowrap;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    border: 1px solid rgba(221,215,141,0.2);
+  }
+  .wa-float:hover .wa-tooltip { opacity: 1; }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 2rem; }
+    .hero { padding: 7rem 2rem 3rem; }
+    .hero-metrics { position: static; margin-top: 3rem; justify-content: flex-start; }
+    .concepto { grid-template-columns: 1fr; gap: 3rem; }
+    .concepto-visual { min-height: 240px; }
+    .concepto-valores { grid-template-columns: repeat(2, 1fr); }
+    .proceso-grid { grid-template-columns: 1fr; }
+    .proceso-step { border-right: none; border-bottom: 1px solid rgba(221,215,141,0.15); }
+    .proceso-step:last-child { border-bottom: none; }
+    .servicios-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 2rem; }
+    .footer-links { justify-content: center; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#hero">
+    <span class="phi">Φ</span> Performance
+  </a>
+  <ul class="nav-links">
+    <li><a href="#concepto">Concepto</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/message/2NXAVGHUEKLMP1" target="_blank">Consultar</a>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg-text">Φ</div>
+  <div class="hero-tag fade-in">Arquitectura Digital · Performance Marketing</div>
+  <h1 class="hero-headline fade-in">
+    Donde el <em>Marketing</em><br>se encuentra con<br>la <em>Precisión.</em>
+  </h1>
+  <p class="hero-sub fade-in">
+    Del caos de las redes sociales a la rentabilidad predecible. No gestionamos anuncios, construimos ecosistemas digitales de alto rendimiento.
+  </p>
+  <div class="hero-actions fade-in">
+    <a class="btn-primary" href="https://wa.me/message/2NXAVGHUEKLMP1" target="_blank">Iniciar Diagnóstico</a>
+    <a class="btn-ghost" href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Ver Servicios</a>
+  </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<section class="concepto" id="concepto">
+  <div class="concepto-text fade-in">
+    <div class="section-label">El concepto Φ</div>
+    <h2 class="section-title">La Proporción Áurea<br>aplicada a tu <em>negocio.</em></h2>
+    <p>El símbolo Phi representa el equilibrio exacto entre dos fuerzas que en marketing suelen chocar: los datos y la creatividad. La mayoría de las agencias viven en uno de los dos extremos. Nosotros operamos en el punto de convergencia.</p>
+    <p>Eso es Arquitectura Digital: estructurar cada capa de tu ecosistema online —desde el píxel hasta el embudo de ventas— para que trabaje de manera predecible y escalable.</p>
+  </div>
+  <div class="concepto-visual fade-in">
+    <div class="phi-ring phi-ring-2"></div>
+    <div class="phi-ring"></div>
+    <span class="phi-symbol">Φ</span>
+  </div>
+  <div class="concepto-valores fade-in">
+    <div class="valor-card">
+      <div class="valor-num">01</div>
+      <h3 class="valor-title">Precisión Técnica</h3>
+      <p class="valor-desc">Cada decisión está respaldada por datos. Si no se puede medir, no se puede mejorar. Reportamos CPL, CPA y ROAS con total transparencia.</p>
+    </div>
+    <div class="valor-card">
+      <div class="valor-num">02</div>
+      <h3 class="valor-title">Estructura Primero</h3>
+      <p class="valor-desc">El orden es el requisito previo para la libertad financiera. Antes de invertir en pauta, la infraestructura tiene que estar perfecta.</p>
+    </div>
+    <div class="valor-card">
+      <div class="valor-num">03</div>
+      <h3 class="valor-title">Transparencia Brutal</h3>
+      <p class="valor-desc">Sin promesas mágicas ni métricas de vanidad. Te decimos exactamente qué está pasando con tu inversión y por qué tomamos cada decisión.</p>
+    </div>
+    <div class="valor-card">
+      <div class="valor-num">04</div>
+      <h3 class="valor-title">Boutique. No Fábrica.</h3>
+      <p class="valor-desc">Atención personalizada de alto nivel. Priorizamos la calidad de los clientes que atendemos por sobre la cantidad. Tu negocio no es un número.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="proceso" id="proceso">
+  <div class="section-label fade-in">Metodología</div>
+  <h2 class="section-title fade-in">El proceso que <em>garantiza</em><br>la arquitectura.</h2>
+  <div class="proceso-grid fade-in">
+    <div class="proceso-step">
+      <span class="paso-num">01</span>
+      <h3 class="paso-title"><em>Estructurar</em></h3>
+      <p class="paso-desc">Ordenamos la casa antes de invertir. Auditoría completa de activos digitales, definición de Buyer Persona, setup técnico de píxeles, APIs y vinculaciones. Sin infraestructura sólida, no hay escala posible.</p>
+      <div class="paso-tag">Setup · Auditoría · Roadmap</div>
+    </div>
+    <div class="proceso-step">
+      <span class="paso-num">02</span>
+      <h3 class="paso-title"><em>Gestionar</em></h3>
+      <p class="paso-desc">Ejecutamos pauta publicitaria en Meta y Google Ads con precisión quirúrgica. Segmentación avanzada, creatividades optimizadas, y optimización constante del ROAS para maximizar cada peso invertido.</p>
+      <div class="paso-tag">Meta Ads · Google Ads · ROAS</div>
+    </div>
+    <div class="proceso-step">
+      <span class="paso-num">03</span>
+      <h3 class="paso-title"><em>Escalar</em></h3>
+      <p class="paso-desc">Cerramos el círculo con CRM, automatización de embudos y análisis de datos. Implementamos Kommo CRM para que ningún lead se pierda y el equipo de ventas opere con máxima eficiencia.</p>
+      <div class="paso-tag">CRM · Automatización · Conversión</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="servicios" id="servicios">
+  <div class="servicios-intro fade-in">
+    <div class="section-label">Servicios</div>
+    <h2 class="section-title">Una solución<br><em>End-to-End.</em></h2>
+    <p>Cada servicio está diseñado para encajar en el siguiente. No vendemos piezas sueltas, construimos el ecosistema completo.</p>
+  </div>
+  <div class="servicios-grid fade-in">
+    <div class="servicio-card">
+      <div class="servicio-icon">Fase 01 · Setup único</div>
+      <h3 class="servicio-title">Arquitectura Digital</h3>
+      <p class="servicio-desc">El cimiento de todo. Ordenamos tus activos digitales y dejamos la infraestructura técnica lista para escalar. Se cobra una sola vez.</p>
+      <ul class="servicio-items">
+        <li>Auditoría & Mapa de Ruta completo</li>
+        <li>Setup de Meta Business Suite y Google Business</li>
+        <li>Vinculación de píxeles y APIs de conversión</li>
+        <li>Roadmap de contenido con hooks y CTAs</li>
+        <li>Definición de Buyer Persona y Social Funnel</li>
+      </ul>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-icon">Fase 02 · Retainer mensual</div>
+      <h3 class="servicio-title">Performance Ads</h3>
+      <p class="servicio-desc">Gestión de pauta enfocada en resultados de conversión. No en impresiones, no en likes. En leads y ventas reales con ROAS optimizado.</p>
+      <ul class="servicio-items">
+        <li>Estrategia y segmentación en Meta Ads</li>
+        <li>Campañas en Google Ads (Search & Display)</li>
+        <li>Optimización semanal y reporte mensual de KPIs</li>
+        <li>A/B testing de creatividades y audiencias</li>
+        <li>Gestión white label para agencias</li>
+      </ul>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-icon">Fase 02 · Producción</div>
+      <h3 class="servicio-title">Ingeniería de Contenido</h3>
+      <p class="servicio-desc">Contenido que no es para gustar, es para vender. Cada pieza tiene una función específica dentro del Social Funnel: captar, retener, convertir.</p>
+      <ul class="servicio-items">
+        <li>Reels y videos diseñados para pauta publicitaria</li>
+        <li>Carruseles con carga técnica y hooks de retención</li>
+        <li>Guiones investigados y CTAs de conversión directa</li>
+        <li>Estética minimalista alineada a tu marca</li>
+      </ul>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-icon">Fase 03 · CRM & Automatización</div>
+      <h3 class="servicio-title">Optimización CRM</h3>
+      <p class="servicio-desc">Partners oficiales de Kommo CRM. Implementamos el sistema que asegura que ningún lead se pierda y que tu equipo de ventas cierre con máxima eficiencia.</p>
+      <ul class="servicio-items">
+        <li>Implementación y configuración de Kommo CRM</li>
+        <li>Diseño de embudos de venta automatizados</li>
+        <li>Bots de respuesta automática y menús inteligentes</li>
+        <li>Capacitación del equipo de ventas (4 clases)</li>
+      </ul>
+      <img class="kommo-badge" src="data:image/jpeg;base64,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" alt="Kommo Partner Oficial">
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contacto">
+  <div class="cta-label fade-in">¿Listo para la precisión de Φ?</div>
+  <h2 class="cta-headline fade-in">Empecemos a construir<br>tu ecosistema.</h2>
+  <p class="cta-sub fade-in">Si buscás un partner que ordene tu infraestructura, gestione tu pauta y estructure tus embudos de venta, hablemos hoy mismo.</p>
+  <div class="cta-buttons fade-in">
+    <a class="btn-dark" href="https://wa.me/message/2NXAVGHUEKLMP1" target="_blank">Hablar por WhatsApp</a>
+    <a class="btn-outline-dark" href="https://www.instagram.com/phi.performance.marketing/" target="_blank">Ver Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span class="phi">Φ</span> Performance Marketing</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/phi.performance.marketing/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@phiperformancemarketing" target="_blank">TikTok</a>
+    <a href="https://wa.me/message/2NXAVGHUEKLMP1" target="_blank">WhatsApp</a>
+  </div>
+  <div class="footer-copy">© 2026 Φ Performance · Todos los derechos reservados</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/message/2NXAVGHUEKLMP1" target="_blank">
+  <div class="wa-tooltip">Consultá ahora</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
