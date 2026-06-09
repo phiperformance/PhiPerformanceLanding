@@ -26,7 +26,7 @@ export function PhiSymbol() {
       {/* Ring — represents the Φ circle */}
       <Torus
         ref={torusRef}
-        args={[1.2, 0.04, 16, 100]}
+        args={[1.2, 0.04, 16, 64]}
         position={[0, 0, 0]}
       >
         <meshStandardMaterial
@@ -39,19 +39,19 @@ export function PhiSymbol() {
       </Torus>
 
       {/* Inner distorted sphere */}
-      <Sphere ref={sphereRef} args={[0.7, 64, 64]} position={[0, 0, 0]}>
+      <Sphere ref={sphereRef} args={[0.7, 32, 32]} position={[0, 0, 0]}>
         <MeshDistortMaterial
           color="#151515"
           metalness={0.6}
           roughness={0.3}
           distort={0.3}
-          speed={2}
+          speed={1}
           wireframe={false}
         />
       </Sphere>
 
       {/* Outer wireframe sphere for depth */}
-      <Sphere args={[1.5, 16, 16]} position={[0, 0, 0]}>
+      <Sphere args={[1.5, 12, 12]} position={[0, 0, 0]}>
         <meshStandardMaterial
           color="#DDD78D"
           wireframe

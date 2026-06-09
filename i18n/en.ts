@@ -53,11 +53,22 @@ export const en = {
       ctaSecondary: "Go to Contact",
     },
     social: {
-      eyebrow: "Authority",
-      title: "Numbers that back us up.",
-      instagram: "+23k followers on Instagram",
-      tiktok: "+2.5k followers on TikTok",
-      projects: "projects delivered",
+      eyebrow: "The difference",
+      title: "How we work.",
+      items: [
+        {
+          stat: "No templates.",
+          body: "Every strategy starts from scratch. Your business, your funnel, your competition — nothing is copied from another client.",
+        },
+        {
+          stat: "No filters.",
+          body: "The data is always yours. CPL, CPA, ROAS in real time, with no spin or convenient interpretation.",
+        },
+        {
+          stat: "No delays.",
+          body: "Diagnosis in 24 hours. If there's a fit, you get a concrete proposal before the week is out.",
+        },
+      ],
     },
   },
 

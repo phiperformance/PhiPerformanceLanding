@@ -12,6 +12,8 @@ export interface Project {
   services: string[];
   featured: boolean;
   coverImage: string | null;
+  instagramUrl?: string;
+  websiteUrl?: string;
   translations: {
     es: ProjectTranslation;
     en: ProjectTranslation;
@@ -22,35 +24,36 @@ export const projects: Project[] = [
   {
     slug: "roller-now",
     client: "Roller Now",
-    industry: "E-commerce / Hogar",
-    services: ["desarrollo-web", "performance-ads", "arquitectura-digital"],
+    industry: "Deco & Hogar",
+    services: ["ingenieria-de-contenido"],
     featured: true,
-    coverImage: null,
+    coverImage: "/images/proyectos/roller-now-cover.jpg",
+    instagramUrl: "https://www.instagram.com/rollernow.arg/",
     translations: {
       es: {
         description:
-          "E-commerce de cortinas y persianas a medida en Córdoba. Producto altamente personalizable que requería un proceso de cotización claro y un embudo de ventas estructurado.",
+          "Marca de lifestyle con productos pensados para una comunidad activa. Les creamos todo el contenido de video: desde el guion hasta la entrega final.",
         challenge:
-          "Roller Now tenía demanda orgánica pero no contaba con una estructura digital para capturarla. Sin píxeles configurados, sin landing de conversión y sin sistema de seguimiento de leads.",
+          "Roller Now necesitaba contenido de video que conectara genuinamente con sus buyer personas y distintos públicos, sin sonar genérico ni ajeno al producto.",
         solution:
-          "Implementamos la Arquitectura Digital completa, desarrollamos una landing de alta conversión con cotizador integrado y lanzamos campañas de Meta Ads segmentadas por zona geográfica en Córdoba.",
+          "Aplicamos ingeniería de contenido: investigamos el producto y los públicos, guionamos cada pieza, grabamos, editamos y entregamos videos pensados estratégicamente para conectar con cada segmento de audiencia.",
         results: [
-          "Reducción del CPL en un 40% en los primeros 60 días",
-          "Tasa de conversión de landing: 8,3%",
-          "Pipeline de leads estructurado con seguimiento automatizado",
+          "Contenido de video producido de inicio a fin: guion, grabación y edición",
+          "Piezas adaptadas a distintos buyer personas y momentos del funnel",
+          "Canal de Instagram con contenido propio y consistente",
         ],
       },
       en: {
         description:
-          "Custom blinds and curtains e-commerce in Córdoba. Highly customizable product requiring a clear quotation process and structured sales funnel.",
+          "Lifestyle brand with products designed for an active community. We created all their video content: from scripting to final delivery.",
         challenge:
-          "Roller Now had organic demand but no digital structure to capture it. No pixels configured, no conversion landing page, and no lead tracking system.",
+          "Roller Now needed video content that genuinely connected with their buyer personas and different audiences, without sounding generic or disconnected from the product.",
         solution:
-          "We implemented the complete Digital Architecture, developed a high-conversion landing page with integrated quote calculator, and launched geographically segmented Meta Ads campaigns in Córdoba.",
+          "We applied content engineering: researched the product and audiences, scripted each piece, filmed, edited, and delivered videos strategically designed to connect with each audience segment.",
         results: [
-          "40% CPL reduction in the first 60 days",
-          "Landing conversion rate: 8.3%",
-          "Structured lead pipeline with automated follow-up",
+          "Video content produced end-to-end: scripting, filming, and editing",
+          "Pieces adapted to different buyer personas and funnel stages",
+          "Instagram channel with original, consistent content",
         ],
       },
     },
@@ -59,106 +62,37 @@ export const projects: Project[] = [
     slug: "perez-bonadero",
     client: "Pérez Bonadero SRL",
     industry: "Servicios / B2B",
-    services: ["arquitectura-digital", "performance-ads", "crm-kommo"],
+    services: ["arquitectura-digital"],
     featured: true,
-    coverImage: null,
+    coverImage: "/images/proyectos/perez-bonadero-cover.jpg",
+    websiteUrl: "https://www.perezbonaderosrl.com",
     translations: {
       es: {
         description:
-          "Empresa de liquidación de siniestros con foco en clientes corporativos. Mercado B2B con ciclos de venta largos y alta necesidad de seguimiento.",
+          "Empresa sin presencia digital alguna. Construimos desde cero toda su identidad online: LinkedIn, Google y una landing page que hoy rankea cuando buscan la empresa.",
         challenge:
-          "El equipo comercial perdía leads por falta de un sistema de seguimiento. Los contactos llegaban por WhatsApp y email sin ningún proceso estandarizado de calificación.",
+          "Pérez Bonadero SRL no tenía ningún activo digital. Sin perfiles en redes, sin presencia en Google y sin sitio web. Para sus clientes potenciales, la empresa simplemente no existía online.",
         solution:
-          "Implementamos Kommo CRM con pipelines diferenciados por tipo de siniestro, integramos WhatsApp Business y configuramos chatbots de calificación inicial. Complementamos con campañas de Google Ads para búsquedas B2B.",
+          "Creamos los perfiles de LinkedIn de los directores fundadores, la página de empresa verificada en LinkedIn, el perfil de negocio verificado en Google y una landing page indexada. Hoy la empresa aparece en los primeros resultados cuando la buscan.",
         results: [
-          "Tiempo de respuesta a leads reducido de 48hs a menos de 2hs",
-          "Visibilidad completa del pipeline de ventas",
-          "Tasa de cierre incrementada un 25%",
+          "Perfiles de LinkedIn de directores fundadores creados y activos",
+          "Página de empresa verificada en LinkedIn",
+          "Perfil de negocio verificado en Google",
+          "Landing page indexada que rankea en primeros puestos para búsquedas de la empresa",
         ],
       },
       en: {
         description:
-          "Claims settlement company focused on corporate clients. B2B market with long sales cycles and high follow-up needs.",
+          "Company with zero digital presence. We built their entire online identity from scratch: LinkedIn, Google, and a landing page that now ranks when people search for the company.",
         challenge:
-          "The sales team was losing leads due to lack of a follow-up system. Contacts arrived via WhatsApp and email with no standardized qualification process.",
+          "Pérez Bonadero SRL had no digital assets at all. No social profiles, no Google presence, no website. For potential clients, the company simply didn't exist online.",
         solution:
-          "We implemented Kommo CRM with pipelines differentiated by claim type, integrated WhatsApp Business, and configured initial qualification chatbots. Complemented with Google Ads campaigns for B2B searches.",
+          "We created LinkedIn profiles for the founding directors, a verified company page on LinkedIn, a verified Google Business profile, and an indexed landing page. Today the company appears in the top results when searched.",
         results: [
-          "Lead response time reduced from 48h to under 2h",
-          "Full visibility of the sales pipeline",
-          "Closing rate increased by 25%",
-        ],
-      },
-    },
-  },
-  {
-    slug: "titus-cars",
-    client: "Titus Cars",
-    industry: "Automotriz",
-    services: ["performance-ads", "ingenieria-de-contenido", "desarrollo-web"],
-    featured: true,
-    coverImage: null,
-    translations: {
-      es: {
-        description:
-          "Concesionaria de autos usados en Córdoba. Mercado competitivo donde la velocidad de respuesta y la confianza son factores clave de conversión.",
-        challenge:
-          "Alta competencia en búsquedas de autos usados en Córdoba, con bajo diferencial de marca y sin contenido que generara confianza antes de la consulta.",
-        solution:
-          "Desarrollamos una estrategia de contenido con Reels mostrando el proceso de preparación de cada auto (trust-building), complementada con campañas de Meta Ads con formularios de lead generation y un sitio web con catálogo de vehículos.",
-        results: [
-          "Incremento del 60% en consultas mensuales",
-          "Reducción del costo por lead en Meta Ads",
-          "Comunidad activa en Instagram con +5k seguidores en 6 meses",
-        ],
-      },
-      en: {
-        description:
-          "Used car dealership in Córdoba. Competitive market where response speed and trust are key conversion factors.",
-        challenge:
-          "High competition in used car searches in Córdoba, with low brand differentiation and no content that generated trust before the inquiry.",
-        solution:
-          "We developed a content strategy with Reels showing the preparation process of each car (trust-building), complemented with Meta Ads campaigns with lead generation forms and a website with vehicle catalog.",
-        results: [
-          "60% increase in monthly inquiries",
-          "Reduced cost per lead on Meta Ads",
-          "Active Instagram community with +5k followers in 6 months",
-        ],
-      },
-    },
-  },
-  {
-    slug: "san-pietro",
-    client: "San Pietro",
-    industry: "Gastronomía",
-    services: ["performance-ads", "ingenieria-de-contenido", "arquitectura-digital"],
-    featured: false,
-    coverImage: null,
-    translations: {
-      es: {
-        description:
-          "Restaurante en Córdoba con propuesta gastronómica italiana de autor. Necesidad de llenar mesas en horarios de baja demanda y posicionarse como referente gastronómico.",
-        challenge:
-          "Sin presencia digital estructurada y con una propuesta de valor que no se comunicaba correctamente. El boca en boca no era suficiente para sostener la operación.",
-        solution:
-          "Construimos la arquitectura digital desde cero, lanzamos Meta Ads con creatividades que mostraban el ambiente y los platos, y desarrollamos una estrategia de contenido enfocada en el storytelling del chef y del producto.",
-        results: [
-          "Ocupación en horarios de baja demanda incrementada un 35%",
-          "Incremento en reservas a través de Instagram",
-          "Alcance orgánico multiplicado por 4 en 3 meses",
-        ],
-      },
-      en: {
-        description:
-          "Restaurant in Córdoba with an Italian author cuisine concept. Need to fill tables during low-demand hours and position as a gastronomic reference.",
-        challenge:
-          "No structured digital presence and a value proposition that wasn't being communicated correctly. Word of mouth wasn't enough to sustain the operation.",
-        solution:
-          "We built the digital architecture from scratch, launched Meta Ads with creatives showcasing the ambiance and dishes, and developed a content strategy focused on the chef and product storytelling.",
-        results: [
-          "35% increase in occupancy during low-demand hours",
-          "Increase in reservations through Instagram",
-          "Organic reach multiplied by 4 in 3 months",
+          "LinkedIn profiles for founding directors created and active",
+          "Verified company page on LinkedIn",
+          "Verified Google Business Profile",
+          "Indexed landing page ranking at the top for company name searches",
         ],
       },
     },

@@ -30,18 +30,20 @@ export function ServicesGrid() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="group relative bg-black border border-cream/10 p-8 flex flex-col gap-4 cursor-pointer transition-colors hover:border-gold/40"
+                className="group relative bg-black border border-cream/10 transition-all duration-300 hover:bg-gold hover:border-gold"
               >
-                <span className="text-3xl text-gold">{service.icon}</span>
-                <h3 className="font-cardo text-2xl text-cream">{tr.title}</h3>
-                <p className="font-montserrat text-xs text-cream/50 leading-relaxed flex-1">
-                  {tr.tagline}
-                </p>
                 <Link
                   href={`/servicios/${service.slug}`}
-                  className="font-montserrat text-[10px] uppercase tracking-widest text-gold hover:text-cream transition-colors mt-2"
+                  className="flex flex-col gap-4 p-8 h-full"
                 >
-                  {t.ui.learnMore} →
+                  <span className="text-3xl text-gold group-hover:text-black transition-colors duration-300">{service.icon}</span>
+                  <h3 className="font-cardo text-2xl text-cream group-hover:text-black transition-colors duration-300">{tr.title}</h3>
+                  <p className="font-montserrat text-xs text-cream/50 group-hover:text-black/70 leading-relaxed flex-1 transition-colors duration-300">
+                    {tr.tagline}
+                  </p>
+                  <span className="font-montserrat text-[10px] uppercase tracking-widest text-gold group-hover:text-black/80 transition-colors duration-300 mt-2">
+                    {t.ui.learnMore} →
+                  </span>
                 </Link>
               </motion.div>
             );

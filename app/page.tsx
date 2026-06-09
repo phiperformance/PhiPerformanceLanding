@@ -6,7 +6,6 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { useLang } from "@/i18n/context";
 
 function ValueSection() {
@@ -54,46 +53,22 @@ function SocialProof() {
           title={t.home.social.title}
           align="center"
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mt-20 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="font-cardo text-6xl text-gold mb-3">
-              <AnimatedCounter target={23} prefix="+" suffix="k" />
-            </p>
-            <p className="font-montserrat text-xs text-cream/40 uppercase tracking-widest">
-              {t.home.social.instagram}
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <p className="font-cardo text-6xl text-gold mb-3">
-              <AnimatedCounter target={2500} prefix="+" />
-            </p>
-            <p className="font-montserrat text-xs text-cream/40 uppercase tracking-widest">
-              {t.home.social.tiktok}
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <p className="font-cardo text-6xl text-gold mb-3">
-              <AnimatedCounter target={4} suffix="+" />
-            </p>
-            <p className="font-montserrat text-xs text-cream/40 uppercase tracking-widest">
-              {t.home.social.projects}
-            </p>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px mt-20 border border-cream/10">
+          {t.home.social.items.map((item, i) => (
+            <motion.div
+              key={i}
+              className="bg-black p-10 border border-cream/10 text-center"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <p className="font-cardo text-4xl text-gold mb-4">{item.stat}</p>
+              <p className="font-montserrat text-xs text-cream/50 leading-relaxed">
+                {item.body}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

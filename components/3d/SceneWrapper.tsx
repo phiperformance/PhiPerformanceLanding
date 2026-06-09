@@ -57,7 +57,8 @@ export function SceneWrapper() {
         <Suspense fallback={null}>
           <Canvas
             camera={{ position: [0, 0, 4], fov: 50 }}
-            dpr={[1, 2]}
+            dpr={[1, 1.5]}
+            performance={{ min: 0.5 }}
             style={{ width: "100%", height: "100%" }}
           >
             <PhiSymbol />
@@ -68,11 +69,19 @@ export function SceneWrapper() {
   );
 }
 
-/* Fallback SVG for mobile / low-powered devices */
+/* Fallback for mobile / no-WebGL: custom hero background image */
 export function PhiFallback() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20" aria-hidden="true">
-      <span className="font-cardo text-[20vw] text-gold select-none">Φ</span>
-    </div>
+    <div
+      className="absolute inset-0 pointer-events-none"
+      aria-hidden="true"
+      style={{
+        backgroundImage: "url('/images/hero-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        opacity: 0.35,
+      }}
+    />
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import type { Project } from "@/data/projects";
@@ -78,12 +79,50 @@ export function ProyectoClient({ project }: { project: Project }) {
         </div>
       </section>
 
-      {/* Cover placeholder */}
+      {/* Cover */}
       <div className="px-6 bg-black">
-        <div className="max-w-5xl mx-auto aspect-video bg-black-deep border border-cream/10 flex items-center justify-center">
-          <span className="font-cardo text-9xl text-gold/10 select-none">Φ</span>
+        <div className="max-w-5xl mx-auto relative aspect-video bg-black-deep border border-cream/10 overflow-hidden">
+          {project.coverImage ? (
+            <Image
+              src={project.coverImage}
+              alt={project.client}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              priority
+            />
+          ) : (
+            <span className="absolute inset-0 flex items-center justify-center font-cardo text-9xl text-gold/10 select-none">Φ</span>
+          )}
         </div>
       </div>
+
+      {(project.instagramUrl || project.websiteUrl) && (
+        <div className="px-6 bg-black mt-6">
+          <div className="max-w-5xl mx-auto flex flex-wrap gap-6">
+            {project.instagramUrl && (
+              <Link
+                href={project.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-montserrat text-[11px] uppercase tracking-widest text-gold hover:text-cream transition-colors"
+              >
+                Ver en Instagram →
+              </Link>
+            )}
+            {project.websiteUrl && (
+              <Link
+                href={project.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-montserrat text-[11px] uppercase tracking-widest text-gold hover:text-cream transition-colors"
+              >
+                Ver sitio web →
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Challenge / Solution / Results */}
       <section className="py-24 px-6 bg-black-deep">

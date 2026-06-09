@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import { projects } from "@/data/projects";
@@ -34,13 +35,18 @@ export function ProjectsGrid({ featuredOnly = false }: { featuredOnly?: boolean 
                 className="group"
               >
                 <Link href={`/proyectos/${project.slug}`}>
-                  {/* Image placeholder */}
-                  <div className="relative aspect-video bg-black border border-cream/10 group-hover:border-gold/30 transition-colors overflow-hidden mb-6 flex items-center justify-center">
-                    <span className="font-cardo text-6xl text-gold/20 select-none">Φ</span>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="font-cardo text-xl text-cream">{project.client}</p>
-                    </div>
+                  <div className="relative aspect-video bg-black border border-cream/10 group-hover:border-gold/30 transition-colors overflow-hidden mb-6">
+                    {project.coverImage ? (
+                      <Image
+                        src={project.coverImage}
+                        alt={project.client}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    ) : (
+                      <span className="absolute inset-0 flex items-center justify-center font-cardo text-6xl text-gold/20 select-none">Φ</span>
+                    )}
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-3">
