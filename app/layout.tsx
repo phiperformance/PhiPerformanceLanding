@@ -23,8 +23,8 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Φ Performance Marketing | Agencia Digital Córdoba",
-    template: "%s | Φ Performance Marketing",
+    default: "Phi Performance Marketing | Agencia Digital Córdoba",
+    template: "%s | Phi Performance Marketing",
   },
   description:
     "Agencia de marketing digital en Córdoba, Argentina. Performance Ads, Desarrollo Web, Ingeniería de Contenido y CRM. Resultados medibles.",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_AR",
-    siteName: "Φ Performance Marketing",
+    siteName: "Phi Performance Marketing",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Φ Performance Marketing",
+  name: "Phi Performance Marketing",
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.png`,
   contactPoint: {

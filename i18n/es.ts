@@ -74,7 +74,7 @@ export const es = {
 
   about: {
     hero: {
-      eyebrow: "Sobre Φ Performance",
+      eyebrow: "Sobre Phi Performance",
       headline: "Donde la proporción áurea se aplica al negocio.",
     },
     origin: {

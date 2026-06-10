@@ -117,7 +117,7 @@ export function Footer() {
             {t.footer.madeIn}
           </p>
           <p className="font-montserrat text-[10px] text-cream/20">
-            © {year} Φ Performance Marketing. {t.footer.rights}
+            © {year} Phi Performance Marketing. {t.footer.rights}
           </p>
         </div>
       </div>

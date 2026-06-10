@@ -74,7 +74,7 @@ export const en = {
 
   about: {
     hero: {
-      eyebrow: "About Φ Performance",
+      eyebrow: "About Phi Performance",
       headline: "Where the golden ratio applies to business.",
     },
     origin: {

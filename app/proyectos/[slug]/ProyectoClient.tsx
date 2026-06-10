@@ -27,7 +27,7 @@ export function ProyectoClient({ project }: { project: Project }) {
     description: tr.description,
     creator: {
       "@type": "Organization",
-      name: "Φ Performance Marketing",
+      name: "Phi Performance Marketing",
     },
     about: project.industry,
   };

@@ -28,7 +28,7 @@ export function buildMetadata({
       title,
       description,
       url,
-      siteName: "Φ Performance Marketing",
+      siteName: "Phi Performance Marketing",
       images: [{ url: image, width: 1200, height: 630 }],
       locale: "es_AR",
       type: "website",

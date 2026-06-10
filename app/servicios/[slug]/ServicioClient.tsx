@@ -21,7 +21,7 @@ export function ServicioClient({ service }: { service: Service }) {
     description: tr.description,
     provider: {
       "@type": "Organization",
-      name: "Φ Performance Marketing",
+      name: "Phi Performance Marketing",
       url: "https://phiperformancemarketing.com",
     },
     areaServed: "AR",
