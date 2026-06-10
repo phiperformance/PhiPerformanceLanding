@@ -6,6 +6,7 @@ import { useLang } from "@/i18n/context";
 import { whatsappLink } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { services } from "@/data/services";
+import { trackEvent } from "@/lib/track";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvjqoaz";
 
@@ -31,6 +32,10 @@ export default function ContactoPage() {
 
       if (res.ok) {
         setStatus("success");
+        trackEvent("Lead", {
+          email: data.get("email")?.toString(),
+          customData: { content_name: data.get("servicio")?.toString() },
+        });
         form.reset();
       } else {
         setStatus("error");
@@ -90,7 +95,7 @@ export default function ContactoPage() {
             <p className="font-montserrat text-xs text-cream/50 leading-relaxed">
               Respondemos en menos de 24hs. Arrancamos con una conversación sobre tu negocio.
             </p>
-            <Button href={waLink} variant="primary" size="lg" external>
+            <Button href={waLink} variant="primary" size="lg" external onClick={() => trackEvent("Contact")}>
               {t.contact.whatsapp}
             </Button>
             <p className="font-montserrat text-[10px] text-cream/30 uppercase tracking-widest">

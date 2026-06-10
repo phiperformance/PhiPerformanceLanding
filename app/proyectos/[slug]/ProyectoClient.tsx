@@ -9,6 +9,7 @@ import { services } from "@/data/services";
 import { Tag } from "@/components/ui/Tag";
 import { Button } from "@/components/ui/Button";
 import { whatsappLink } from "@/lib/constants";
+import { trackEvent } from "@/lib/track";
 
 export function ProyectoClient({ project }: { project: Project }) {
   const { t, lang } = useLang();
@@ -176,7 +177,7 @@ export function ProyectoClient({ project }: { project: Project }) {
           {t.projects.cta}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href={waLink} variant="primary" size="lg" external>
+          <Button href={waLink} variant="primary" size="lg" external onClick={() => trackEvent("Contact")}>
             {t.projects.similarCta}
           </Button>
           <Link

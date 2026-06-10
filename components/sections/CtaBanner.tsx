@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import { whatsappLink } from "@/lib/constants";
+import { trackEvent } from "@/lib/track";
 import { Button } from "@/components/ui/Button";
 
 export function CtaBanner() {
@@ -37,7 +38,7 @@ export function CtaBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <Button href={waLink} variant="primary" size="lg" external>
+          <Button href={waLink} variant="primary" size="lg" external onClick={() => trackEvent("Contact")}>
             {t.home.cta.ctaPrimary}
           </Button>
           <Button href="/contacto" variant="outline" size="lg">

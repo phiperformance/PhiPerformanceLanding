@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import { whatsappLink } from "@/lib/constants";
+import { trackEvent } from "@/lib/track";
 import { Button } from "@/components/ui/Button";
 
 export function HeroHome() {
@@ -60,7 +61,7 @@ export function HeroHome() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.8 }}
         >
-          <Button href={waLink} variant="primary" size="lg" external>
+          <Button href={waLink} variant="primary" size="lg" external onClick={() => trackEvent("Contact")}>
             {t.home.hero.ctaPrimary}
           </Button>
           <Button href="/servicios" variant="outline" size="lg">

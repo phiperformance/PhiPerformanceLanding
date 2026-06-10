@@ -6,6 +6,7 @@ import { useLang } from "@/i18n/context";
 import type { Service } from "@/data/services";
 import { Button } from "@/components/ui/Button";
 import { whatsappLink } from "@/lib/constants";
+import { trackEvent } from "@/lib/track";
 
 export function ServicioClient({ service }: { service: Service }) {
   const { t, lang } = useLang();
@@ -137,7 +138,7 @@ export function ServicioClient({ service }: { service: Service }) {
             )}
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button href={waLink} variant="primary" size="lg" external>
+            <Button href={waLink} variant="primary" size="lg" external onClick={() => trackEvent("Contact")}>
               {t.services.cta}
             </Button>
             <Link

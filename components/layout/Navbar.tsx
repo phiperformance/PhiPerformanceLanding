@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import { whatsappLink } from "@/lib/constants";
+import { trackEvent } from "@/lib/track";
 
 const navLinks = [
   { href: "/", key: "home" as const },
@@ -94,6 +95,7 @@ export function Navbar() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("Contact")}
               className="font-montserrat text-[11px] uppercase tracking-widest bg-gold text-black px-5 py-2 hover:bg-gold/90 transition-colors"
             >
               {t.nav.cta}
@@ -176,6 +178,7 @@ export function Navbar() {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent("Contact")}
                 className="font-montserrat text-xs uppercase tracking-widest border border-gold text-gold px-5 py-2"
               >
                 {t.nav.cta}

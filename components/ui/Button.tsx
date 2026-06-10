@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 
 type Variant = "primary" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
@@ -11,7 +11,7 @@ interface ButtonProps {
   variant?: Variant;
   size?: Size;
   href?: string;
-  onClick?: () => void;
+  onClick?: (e: MouseEvent) => void;
   className?: string;
   external?: boolean;
 }
@@ -44,7 +44,13 @@ export function Button({
   if (href) {
     if (external) {
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={classes}
+          onClick={onClick}
+        >
           {children}
         </a>
       );

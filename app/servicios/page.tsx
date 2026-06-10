@@ -5,6 +5,7 @@ import { useLang } from "@/i18n/context";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/Button";
 import { whatsappLink } from "@/lib/constants";
+import { trackEvent } from "@/lib/track";
 
 export default function ServiciosPage() {
   const { t, lang } = useLang();
@@ -87,7 +88,7 @@ export default function ServiciosPage() {
                     <Button href={`/servicios/${service.slug}`} variant="outline" size="sm">
                       {t.ui.learnMore}
                     </Button>
-                    <Button href={waLink} variant="ghost" size="sm" external>
+                    <Button href={waLink} variant="ghost" size="sm" external onClick={() => trackEvent("Contact")}>
                       {t.services.cta}
                     </Button>
                   </div>
