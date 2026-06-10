@@ -43,6 +43,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  icons: {
+    icon: [
+      { url: "/icon-dark.svg", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon-light.svg", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark.svg" },
+    ],
+  },
   robots: {
     index: true,
     follow: true,

@@ -46,7 +46,6 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-cardo text-2xl text-gold">Φ</span>
             <span className="font-montserrat text-xs uppercase tracking-[0.25em] text-cream/80 group-hover:text-cream transition-colors">
               Performance
             </span>

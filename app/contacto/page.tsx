@@ -1,14 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import { whatsappLink } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { services } from "@/data/services";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvjqoaz";
+
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function ContactoPage() {
   const { t, lang } = useLang();
   const waLink = whatsappLink(t.contact.whatsappMessage);
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <>
@@ -79,12 +109,7 @@ export default function ContactoPage() {
             <p className="font-montserrat text-[10px] uppercase tracking-[0.3em] text-gold mb-8">
               Formulario
             </p>
-            <form
-              action="mailto:francisco@phiperformancemarketing.com"
-              method="post"
-              encType="text/plain"
-              className="flex flex-col gap-5"
-            >
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div>
                 <label className="font-montserrat text-[10px] uppercase tracking-widest text-cream/40 block mb-2">
                   {t.contact.form.name}
@@ -135,10 +160,25 @@ export default function ContactoPage() {
               </div>
               <button
                 type="submit"
-                className="font-montserrat text-[11px] uppercase tracking-widest bg-cream text-black px-6 py-3 hover:bg-gold transition-colors"
+                disabled={status === "sending"}
+                className="font-montserrat text-[11px] uppercase tracking-widest bg-cream text-black px-6 py-3 hover:bg-gold transition-colors disabled:opacity-50"
               >
-                {t.contact.form.submit}
+                {status === "sending" ? "..." : t.contact.form.submit}
               </button>
+              {status === "success" && (
+                <p className="font-montserrat text-xs text-gold">
+                  {lang === "es"
+                    ? "¡Gracias! Te contactaremos a la brevedad."
+                    : "Thanks! We'll get back to you shortly."}
+                </p>
+              )}
+              {status === "error" && (
+                <p className="font-montserrat text-xs text-red-400">
+                  {lang === "es"
+                    ? "Ocurrió un error. Por favor intentá de nuevo o escribinos por WhatsApp."
+                    : "Something went wrong. Please try again or message us on WhatsApp."}
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
