@@ -1,3 +1,5 @@
+import { getCookieConsent } from "./cookieConsent";
+
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
@@ -12,6 +14,7 @@ interface TrackOptions {
 
 export function trackEvent(eventName: string, options: TrackOptions = {}) {
   if (typeof window === "undefined") return;
+  if (getCookieConsent() !== "accepted") return;
 
   const eventId = `${eventName}.${Date.now()}.${Math.random().toString(36).slice(2)}`;
 

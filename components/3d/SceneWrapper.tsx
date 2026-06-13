@@ -43,9 +43,11 @@ function isWebGLAvailable() {
 
 export function SceneWrapper() {
   const [webglSupported, setWebglSupported] = useState<boolean | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setWebglSupported(isWebGLAvailable());
+    setIsMobile(window.innerWidth < 768);
   }, []);
 
   if (webglSupported === null) return null;
@@ -57,11 +59,11 @@ export function SceneWrapper() {
         <Suspense fallback={null}>
           <Canvas
             camera={{ position: [0, 0, 4], fov: 50 }}
-            dpr={[1, 1.5]}
+            dpr={isMobile ? 1 : [1, 1.5]}
             performance={{ min: 0.5 }}
             style={{ width: "100%", height: "100%" }}
           >
-            <PhiSymbol />
+            <PhiSymbol mobile={isMobile} />
           </Canvas>
         </Suspense>
       </div>

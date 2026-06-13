@@ -1,9 +1,25 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Script from "next/script";
+import { COOKIE_CONSENT_EVENT, CookieConsent, getCookieConsent } from "@/lib/cookieConsent";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
 export function MetaPixel() {
-  if (!PIXEL_ID) return null;
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    setEnabled(getCookieConsent() === "accepted");
+
+    const handler = (e: Event) => {
+      setEnabled((e as CustomEvent<CookieConsent>).detail === "accepted");
+    };
+    window.addEventListener(COOKIE_CONSENT_EVENT, handler);
+    return () => window.removeEventListener(COOKIE_CONSENT_EVENT, handler);
+  }, []);
+
+  if (!PIXEL_ID || !enabled) return null;
 
   return (
     <>

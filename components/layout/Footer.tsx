@@ -116,9 +116,23 @@ export function Footer() {
           <p className="font-montserrat text-[10px] text-cream/20 uppercase tracking-widest">
             {t.footer.madeIn}
           </p>
-          <p className="font-montserrat text-[10px] text-cream/20">
-            © {year} Phi Performance Marketing. {t.footer.rights}
-          </p>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/legal"
+              className="font-montserrat text-[10px] text-cream/20 uppercase tracking-widest hover:text-gold transition-colors"
+            >
+              {t.footer.legal}
+            </Link>
+            <Link
+              href="/politica-de-cookies"
+              className="font-montserrat text-[10px] text-cream/20 uppercase tracking-widest hover:text-gold transition-colors"
+            >
+              {t.footer.cookies}
+            </Link>
+            <p className="font-montserrat text-[10px] text-cream/20">
+              © {year} Phi Performance Marketing. {t.footer.rights}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

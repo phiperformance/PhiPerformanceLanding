@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { Torus, Sphere, MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
-export function PhiSymbol() {
+export function PhiSymbol({ mobile = false }: { mobile?: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
   const torusRef = useRef<THREE.Mesh>(null);
   const sphereRef = useRef<THREE.Mesh>(null);
@@ -26,7 +26,7 @@ export function PhiSymbol() {
       {/* Ring — represents the Φ circle */}
       <Torus
         ref={torusRef}
-        args={[1.2, 0.04, 16, 64]}
+        args={[1.2, 0.04, 16, mobile ? 32 : 64]}
         position={[0, 0, 0]}
       >
         <meshStandardMaterial
@@ -39,7 +39,7 @@ export function PhiSymbol() {
       </Torus>
 
       {/* Inner distorted sphere */}
-      <Sphere ref={sphereRef} args={[0.7, 32, 32]} position={[0, 0, 0]}>
+      <Sphere ref={sphereRef} args={[0.7, mobile ? 20 : 32, mobile ? 20 : 32]} position={[0, 0, 0]}>
         <MeshDistortMaterial
           color="#151515"
           metalness={0.6}

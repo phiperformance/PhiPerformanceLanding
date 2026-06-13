@@ -5,6 +5,7 @@ import { LangProvider } from "@/i18n/context";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MetaPixel } from "@/components/MetaPixel";
+import { CookieConsent } from "@/components/CookieConsent";
 import { SITE_URL } from "@/lib/constants";
 
 const cardo = Cardo({
@@ -97,6 +98,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <CookieConsent />
         </LangProvider>
       </body>
     </html>

@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/Button";
 
 export function HeroHome() {
   const { t } = useLang();
-  const [isMobile, setIsMobile] = useState(false);
+  const [lowPower, setLowPower] = useState(false);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768 || navigator.hardwareConcurrency <= 4);
+    setLowPower(navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 2);
   }, []);
 
   const waLink = whatsappLink(t.contact.whatsappMessage);
@@ -20,7 +20,7 @@ export function HeroHome() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* 3D Scene — loaded dynamically */}
-      {!isMobile ? (
+      {!lowPower ? (
         <SceneWrapperLazy />
       ) : (
         <PhiFallbackLazy />

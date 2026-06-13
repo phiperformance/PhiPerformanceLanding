@@ -169,6 +169,8 @@ export const en = {
     whatsappMessage: "Hi, I saw your website and would like to make an inquiry about my business.",
     form: {
       name: "Name",
+      email: "Email",
+      phone: "Phone / WhatsApp",
       company: "Company",
       service: "Service of interest",
       message: "Tell us about your project",
@@ -176,6 +178,8 @@ export const en = {
       placeholder: {
         service: "Select a service",
       },
+      privacyConsent: "I accept the",
+      privacyConsentLink: "Privacy Policy",
     },
     location: "Córdoba, Argentina",
   },
@@ -186,6 +190,126 @@ export const en = {
     contact: "Contact",
     madeIn: "Made in Córdoba, Argentina",
     rights: "All rights reserved.",
+    cookies: "Cookies",
+    legal: "Legal",
+  },
+
+  legal: {
+    title: "Legal",
+    intro:
+      "This page brings together our Privacy Policy and our Terms and Conditions for using the site.",
+    privacy: {
+      title: "Privacy Policy",
+      updated: "Last updated: 2026",
+      sections: [
+        {
+          title: "Data controller",
+          body: "Phi Performance Marketing, based in Córdoba, Argentina, is responsible for processing the personal data collected through this site. For questions about your data, you can reach us through the contact form or WhatsApp.",
+        },
+        {
+          title: "Data we collect",
+          body: "Through the contact form we collect name, company, service of interest, and message. Through cookies and the Meta Pixel we may collect IP address, browser identifiers (_fbp, _fbc), and browsing data, depending on your cookie consent.",
+        },
+        {
+          title: "Purpose of processing",
+          body: "We use your data to respond to inquiries, prepare commercial proposals, improve our services, and, if you accepted marketing cookies, measure the effectiveness of advertising campaigns and show you relevant ads on Meta (Facebook/Instagram).",
+        },
+        {
+          title: "Sharing with third parties",
+          body: "We share data with providers that help us run the site: Formspree (contact form management) and Meta (Conversions API, only if you accepted marketing cookies). These providers process data according to their own privacy policies.",
+        },
+        {
+          title: "Your rights",
+          body: "Under Argentina's Personal Data Protection Law (Law 25.326), you have the right to access, rectify, update, or request deletion of your personal data. The Agency for Access to Public Information (AAIP) is the relevant oversight authority. To exercise these rights, contact us through the channels listed on the site.",
+        },
+        {
+          title: "Retention and security",
+          body: "We retain your data only for as long as necessary to fulfill the purpose for which it was collected, and we take reasonable measures to protect it against unauthorized access.",
+        },
+        {
+          title: "Changes to this policy",
+          body: "We may update this policy to reflect legal changes or changes to our practices. The \"last updated\" date indicates the current version.",
+        },
+      ],
+    },
+    terms: {
+      title: "Terms and Conditions",
+      updated: "Last updated: 2026",
+      sections: [
+        {
+          title: "Acceptance of terms",
+          body: "By accessing and using this site, you accept these Terms and Conditions. If you do not agree, please do not use the site.",
+        },
+        {
+          title: "Use of the site",
+          body: "The content of this site is informational and commercial in nature. You agree to use it in good faith and not to take any action that could harm its operation, security, or availability.",
+        },
+        {
+          title: "Intellectual property",
+          body: "All text, graphics, logos, designs, and other content on this site are the property of Phi Performance Marketing or its licensors and are protected by intellectual property laws. Reproduction without prior authorization is not permitted.",
+        },
+        {
+          title: "Third-party links",
+          body: "This site may contain links to third-party sites (social media, WhatsApp, etc.). We are not responsible for the content or privacy practices of those sites.",
+        },
+        {
+          title: "Limitation of liability",
+          body: "The information on this site is provided \"as is\", without warranties of any kind. Phi Performance Marketing will not be liable for damages arising from the use or inability to use the site.",
+        },
+        {
+          title: "Changes",
+          body: "We reserve the right to modify these Terms and Conditions at any time. Changes take effect upon publication on this page.",
+        },
+        {
+          title: "Governing law and jurisdiction",
+          body: "These terms are governed by the laws of Argentina. Any dispute will be subject to the ordinary courts of the city of Córdoba, Argentina.",
+        },
+      ],
+    },
+  },
+
+  cookies: {
+    banner: {
+      title: "We use cookies",
+      body: "We use our own and third-party cookies to improve your experience, analyze site traffic and personalize advertising. You can accept all, reject non-essential ones, or customize your preferences.",
+      acceptAll: "Accept all",
+      rejectAll: "Reject non-essential",
+      customize: "Customize",
+      policyLink: "Cookie policy",
+    },
+    settings: {
+      title: "Cookie preferences",
+      body: "Choose which types of cookies you want to allow. Essential cookies are required for the site to function and can't be disabled.",
+      essential: {
+        title: "Essential",
+        body: "Required for basic site functionality, such as remembering your preferred language.",
+      },
+      analytics: {
+        title: "Analytics & marketing",
+        body: "Allow us to measure traffic and show you relevant ads on Meta (Facebook/Instagram).",
+      },
+      save: "Save preferences",
+    },
+    page: {
+      title: "Cookie Policy",
+      updated: "Last updated: 2026",
+      intro:
+        "This page explains what cookies are, how Phi Performance Marketing uses them, and how you can manage them.",
+      sections: [
+        {
+          title: "What are cookies?",
+          body: "Cookies are small text files that websites store in your browser to remember information about your visit, such as your language preferences or browsing behavior.",
+        },
+        {
+          title: "Cookies we use",
+          body: "Essential: store your language preference (localStorage) and your cookie consent choice. Marketing: Meta Pixel (_fbp, _fbc) helps us measure conversions and show relevant ads on Meta. The latter are only activated if you accept them.",
+        },
+        {
+          title: "Managing your preferences",
+          body: "You can change your choice at any time using the cookie preferences button available in the site footer.",
+        },
+      ],
+    },
   },
 
   ui: {
