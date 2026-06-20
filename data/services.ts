@@ -10,7 +10,6 @@ export interface Service {
   slug: string;
   icon: string;
   category: "setup" | "ads" | "content" | "web" | "crm";
-  priceRange?: string;
   translations: {
     es: ServiceTranslation;
     en: ServiceTranslation;
@@ -22,7 +21,6 @@ export const services: Service[] = [
     slug: "arquitectura-digital",
     icon: "⬡",
     category: "setup",
-    priceRange: "Setup fee único",
     translations: {
       es: {
         title: "Arquitectura Digital",
@@ -70,7 +68,6 @@ export const services: Service[] = [
     slug: "performance-ads",
     icon: "◈",
     category: "ads",
-    priceRange: "Desde $250.000/mes",
     translations: {
       es: {
         title: "Performance Ads",
@@ -118,7 +115,6 @@ export const services: Service[] = [
     slug: "ingenieria-de-contenido",
     icon: "◎",
     category: "content",
-    priceRange: "Desde $150.000/mes",
     translations: {
       es: {
         title: "Ingeniería de Contenido",
@@ -166,7 +162,6 @@ export const services: Service[] = [
     slug: "desarrollo-web",
     icon: "◻︎",
     category: "web",
-    priceRange: "Desde $500.000",
     translations: {
       es: {
         title: "Desarrollo Web",
@@ -214,7 +209,6 @@ export const services: Service[] = [
     slug: "crm-kommo",
     icon: "◉",
     category: "crm",
-    priceRange: "Desde $200.000",
     translations: {
       es: {
         title: "Optimización CRM",

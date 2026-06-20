@@ -133,7 +133,6 @@ export const es = {
     cta: "Consultar por este servicio",
     painPoints: "¿Cuándo necesitás este servicio?",
     includes: "Qué incluye",
-    price: "Inversión",
   },
 
   projects: {

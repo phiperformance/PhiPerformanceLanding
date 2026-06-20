@@ -61,11 +61,6 @@ export function ServiciosClient() {
                   <span className="text-3xl text-gold block mb-4">{service.icon}</span>
                   <h2 className="font-cardo text-3xl text-cream mb-2">{tr.title}</h2>
                   <p className="font-montserrat text-xs text-gold/80">{tr.tagline}</p>
-                  {service.priceRange && (
-                    <p className="font-montserrat text-[10px] uppercase tracking-widest text-cream/30 mt-4">
-                      {t.services.price}: {service.priceRange}
-                    </p>
-                  )}
                 </div>
                 <div className="md:col-span-1">
                   <p className="font-montserrat text-[10px] uppercase tracking-widest text-gold mb-4">

@@ -124,19 +124,9 @@ export function ServicioClient({ service }: { service: Service }) {
         </div>
       </section>
 
-      {/* Price + CTA */}
+      {/* CTA */}
       <section className="py-24 px-6 bg-black">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div>
-            {service.priceRange && (
-              <>
-                <p className="font-montserrat text-[10px] uppercase tracking-widest text-gold mb-2">
-                  {t.services.price}
-                </p>
-                <p className="font-cardo text-4xl text-cream">{service.priceRange}</p>
-              </>
-            )}
-          </div>
+        <div className="max-w-5xl mx-auto flex justify-center">
           <div className="flex flex-col sm:flex-row gap-4">
             <Button href={waLink} variant="primary" size="lg" external onClick={() => trackEvent("Contact")}>
               {t.services.cta}

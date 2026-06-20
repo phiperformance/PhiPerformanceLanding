@@ -133,7 +133,6 @@ export const en = {
     cta: "Inquire about this service",
     painPoints: "When do you need this service?",
     includes: "What's included",
-    price: "Investment",
   },
 
   projects: {
