@@ -164,7 +164,7 @@ export const services: Service[] = [
   },
   {
     slug: "desarrollo-web",
-    icon: "◻",
+    icon: "◻︎",
     category: "web",
     priceRange: "Desde $500.000",
     translations: {
