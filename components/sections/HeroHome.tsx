@@ -20,10 +20,10 @@ export function HeroHome() {
 
   useEffect(() => {
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // Mobile + reduced-motion users never pay for WebGL (three.js isn't even
-    // fetched) — they get the static backdrop only.
-    if (isMobile || reduced) return;
+    // Mobile never pays for WebGL (three.js isn't even fetched) — it gets the
+    // static backdrop only. Desktop always loads the scene; reduced-motion is
+    // handled inside SceneWrapper by rendering it static rather than skipping it.
+    if (isMobile) return;
 
     // Defer the heavy WebGL scene until the page is idle so it doesn't compete
     // with hydration and first paint. Keeps TBT / LCP out of the 3D's way.

@@ -75,9 +75,11 @@ export function SceneWrapper() {
     const el = containerRef.current;
     if (!el) return;
 
+    // Reduced-motion users still get the scene, but frozen (no render loop).
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let inView = true;
     let visible = !document.hidden;
-    const sync = () => setActive(inView && visible);
+    const sync = () => setActive(inView && visible && !reduced);
 
     const io = new IntersectionObserver(
       ([entry]) => {
