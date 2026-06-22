@@ -8,6 +8,7 @@ import { whatsappLink } from "@/lib/constants";
 import { trackEvent } from "@/lib/track";
 import { Button } from "@/components/ui/Button";
 import { HeroBackdrop } from "@/components/sections/HeroBackdrop";
+import { hasHardwareWebGL } from "@/lib/webgl";
 
 const Hero3D = dynamic(
   () => import("@/components/3d/SceneWrapper").then((m) => m.SceneWrapper),
@@ -20,24 +21,14 @@ export function HeroHome() {
 
   useEffect(() => {
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    // Mobile never pays for WebGL (three.js isn't even fetched) — it gets the
-    // static backdrop only. Desktop always loads the scene; reduced-motion is
-    // handled inside SceneWrapper by rendering it static rather than skipping it.
+    // Mobile gets the static backdrop only (three.js isn't even fetched).
     if (isMobile) return;
-
-    // Defer the heavy WebGL scene until the page is idle so it doesn't compete
-    // with hydration and first paint. Keeps TBT / LCP out of the 3D's way.
-    const start = () => setEnable3D(true);
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    if (w.requestIdleCallback) {
-      const id = w.requestIdleCallback(start, { timeout: 3000 });
-      return () => w.cancelIdleCallback?.(id);
-    }
-    const id = window.setTimeout(start, 2000);
-    return () => window.clearTimeout(id);
+    // Only machines with a real GPU load the scene — software renderers
+    // (Lighthouse's headless Chrome, GPU-less VMs) would turn every frame into a
+    // long task. Real GPUs render it cheaply, so we mount it right away for the
+    // full effect without hurting the performance score.
+    if (!hasHardwareWebGL()) return;
+    setEnable3D(true);
   }, []);
 
   const waLink = whatsappLink(t.contact.whatsappMessage);
