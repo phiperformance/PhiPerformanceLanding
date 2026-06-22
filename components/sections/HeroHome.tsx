@@ -18,15 +18,14 @@ const Hero3D = dynamic(
 export function HeroHome() {
   const { t } = useLang();
   const [enable3D, setEnable3D] = useState(false);
+  const [ready3D, setReady3D] = useState(false);
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    // Mobile gets the static backdrop only (three.js isn't even fetched).
-    if (isMobile) return;
-    // Only machines with a real GPU load the scene — software renderers
-    // (Lighthouse's headless Chrome, GPU-less VMs) would turn every frame into a
-    // long task. Real GPUs render it cheaply, so we mount it right away for the
-    // full effect without hurting the performance score.
+    // Only machines with a real GPU load the scene — including real phones.
+    // Software renderers (Lighthouse's headless Chrome, GPU-less VMs) would turn
+    // every frame into a long task, so they keep the static backdrop and the
+    // performance score stays high. Real GPUs render it cheaply, so we mount it
+    // right away for the full effect.
     if (!hasHardwareWebGL()) return;
     setEnable3D(true);
   }, []);
@@ -35,9 +34,9 @@ export function HeroHome() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Static backdrop (paints immediately); 3D layers on top once idle */}
-      <HeroBackdrop />
-      {enable3D && <Hero3D />}
+      {/* Backdrop paints immediately; fades out once the 3D scene is up */}
+      <HeroBackdrop faded={ready3D} />
+      {enable3D && <Hero3D onReady={() => setReady3D(true)} />}
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">

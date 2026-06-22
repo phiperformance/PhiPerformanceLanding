@@ -61,9 +61,12 @@ function FrameDriver({ active, fps = 30 }: { active: boolean; fps?: number }) {
   return null;
 }
 
-export function SceneWrapper() {
+export function SceneWrapper({ onReady }: { onReady?: () => void }) {
   const [webglSupported, setWebglSupported] = useState<boolean | null>(null);
   const [active, setActive] = useState(true);
+  const [mobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth < 768
+  );
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -75,11 +78,11 @@ export function SceneWrapper() {
     const el = containerRef.current;
     if (!el) return;
 
-    // Reduced-motion users still get the scene, but frozen (no render loop).
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Pause the loop when off-screen or the tab is hidden (perf), but always
+    // animate while visible — the slow rotation is intentional brand motion.
     let inView = true;
     let visible = !document.hidden;
-    const sync = () => setActive(inView && visible && !reduced);
+    const sync = () => setActive(inView && visible);
 
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -118,9 +121,12 @@ export function SceneWrapper() {
             dpr={[1, 1.5]}
             performance={{ min: 0.5 }}
             style={{ width: "100%", height: "100%" }}
+            // Wait one painted frame before telling the parent to fade the
+            // backdrop out, so the 3D is visible before the swap.
+            onCreated={() => requestAnimationFrame(() => onReady?.())}
           >
             <FrameDriver active={active} fps={30} />
-            <PhiSymbol />
+            <PhiSymbol mobile={mobile} />
           </Canvas>
         </Suspense>
       </div>
