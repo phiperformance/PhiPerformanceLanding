@@ -23,6 +23,10 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Inline critical CSS and defer the rest (reduces render-blocking requests)
+  experimental: {
+    optimizeCss: true,
+  },
   images: {
     remotePatterns: [
       {

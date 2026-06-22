@@ -1,30 +1,52 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import { whatsappLink } from "@/lib/constants";
 import { trackEvent } from "@/lib/track";
 import { Button } from "@/components/ui/Button";
+import { HeroBackdrop } from "@/components/sections/HeroBackdrop";
+
+const Hero3D = dynamic(
+  () => import("@/components/3d/SceneWrapper").then((m) => m.SceneWrapper),
+  { ssr: false }
+);
 
 export function HeroHome() {
   const { t } = useLang();
-  const [lowPower, setLowPower] = useState(false);
+  const [enable3D, setEnable3D] = useState(false);
 
   useEffect(() => {
-    setLowPower(navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 2);
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Mobile + reduced-motion users never pay for WebGL (three.js isn't even
+    // fetched) — they get the static backdrop only.
+    if (isMobile || reduced) return;
+
+    // Defer the heavy WebGL scene until the page is idle so it doesn't compete
+    // with hydration and first paint. Keeps TBT / LCP out of the 3D's way.
+    const start = () => setEnable3D(true);
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(start, { timeout: 3000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const id = window.setTimeout(start, 2000);
+    return () => window.clearTimeout(id);
   }, []);
 
   const waLink = whatsappLink(t.contact.whatsappMessage);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* 3D Scene — loaded dynamically */}
-      {!lowPower ? (
-        <SceneWrapperLazy />
-      ) : (
-        <PhiFallbackLazy />
-      )}
+      {/* Static backdrop (paints immediately); 3D layers on top once idle */}
+      <HeroBackdrop />
+      {enable3D && <Hero3D />}
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -37,14 +59,10 @@ export function HeroHome() {
           {t.home.hero.eyebrow}
         </motion.p>
 
-        <motion.h1
-          className="font-cardo text-5xl md:text-7xl lg:text-8xl text-cream leading-tight mb-8"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-        >
+        {/* LCP element — rendered visible from first paint (no entrance fade) */}
+        <h1 className="font-cardo text-5xl md:text-7xl lg:text-8xl text-cream leading-tight mb-8">
           {t.home.hero.headline}
-        </motion.h1>
+        </h1>
 
         <motion.p
           className="font-montserrat text-sm md:text-base text-cream/60 max-w-2xl mx-auto leading-relaxed mb-12"
@@ -70,48 +88,13 @@ export function HeroHome() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-      >
+      {/* Scroll indicator — CSS-only animation, no main-thread JS */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="font-montserrat text-[9px] uppercase tracking-[0.3em] text-cream/30">
           Scroll
         </span>
-        <motion.div
-          className="w-px h-8 bg-gold/30"
-          animate={{ scaleY: [1, 0.3, 1] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        />
-      </motion.div>
+        <div className="w-px h-8 bg-gold/30 animate-scroll-pulse" />
+      </div>
     </section>
   );
-}
-
-function SceneWrapperLazy() {
-  const [Comp, setComp] = useState<React.ComponentType | null>(null);
-
-  useEffect(() => {
-    import("@/components/3d/SceneWrapper").then((mod) => {
-      setComp(() => mod.SceneWrapper);
-    });
-  }, []);
-
-  if (!Comp) return null;
-  return <Comp />;
-}
-
-function PhiFallbackLazy() {
-  const [Comp, setComp] = useState<React.ComponentType | null>(null);
-
-  useEffect(() => {
-    import("@/components/3d/SceneWrapper").then((mod) => {
-      setComp(() => mod.PhiFallback);
-    });
-  }, []);
-
-  if (!Comp) return null;
-  return <Comp />;
 }

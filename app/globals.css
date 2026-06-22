@@ -46,4 +46,28 @@ body::before {
   .font-montserrat {
     font-family: "Montserrat", sans-serif;
   }
+  /* Compositor-driven scroll-cue pulse (no main-thread JS) */
+  .animate-scroll-pulse {
+    transform-origin: top;
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes scroll-pulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-scroll-pulse {
+    animation: none;
+  }
 }
