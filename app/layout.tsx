@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MetaPixel } from "@/components/MetaPixel";
 import { CookieConsent } from "@/components/CookieConsent";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, INSTAGRAM_URL, TIKTOK_URL } from "@/lib/constants";
 
 const cardo = Cardo({
   weight: ["400", "700"],
@@ -80,10 +80,7 @@ const jsonLd = {
     addressLocality: "Córdoba",
     addressCountry: "AR",
   },
-  sameAs: [
-    "https://instagram.com/phiperformance",
-    "https://tiktok.com/@phiperformance",
-  ],
+  sameAs: [INSTAGRAM_URL, TIKTOK_URL],
 };
 
 export default function RootLayout({
