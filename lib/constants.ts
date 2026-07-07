@@ -1,6 +1,6 @@
 export const WHATSAPP_NUMBER = "5493513664321";
 export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const SITE_URL = "https://phiperformancemarketing.com";
+export const SITE_URL = "https://www.phiperformancemarketing.com";
 export const INSTAGRAM_URL = "https://instagram.com/phiperformance";
 export const TIKTOK_URL = "https://tiktok.com/@phiperformance";
 

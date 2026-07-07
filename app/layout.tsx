@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     "desarrollo web córdoba",
     "marketing digital argentina",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "es_AR",
@@ -47,10 +50,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/icon-dark.svg", media: "(prefers-color-scheme: dark)" },
       { url: "/icon-light.svg", media: "(prefers-color-scheme: light)" },
       { url: "/icon-dark.svg" },
     ],
+    shortcut: "/favicon.ico",
   },
   robots: {
     index: true,

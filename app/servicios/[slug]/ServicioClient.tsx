@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import type { Service } from "@/data/services";
 import { Button } from "@/components/ui/Button";
-import { whatsappLink } from "@/lib/constants";
+import { whatsappLink, SITE_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/track";
 
 export function ServicioClient({ service }: { service: Service }) {
@@ -22,7 +22,7 @@ export function ServicioClient({ service }: { service: Service }) {
     provider: {
       "@type": "Organization",
       name: "Phi Performance Marketing",
-      url: "https://phiperformancemarketing.com",
+      url: SITE_URL,
     },
     areaServed: "AR",
   };
