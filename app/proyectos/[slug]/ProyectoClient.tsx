@@ -8,7 +8,7 @@ import type { Project } from "@/data/projects";
 import { services } from "@/data/services";
 import { Tag } from "@/components/ui/Tag";
 import { Button } from "@/components/ui/Button";
-import { whatsappLink } from "@/lib/constants";
+import { whatsappLink, SITE_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/track";
 
 export function ProyectoClient({ project }: { project: Project }) {
@@ -32,11 +32,25 @@ export function ProyectoClient({ project }: { project: Project }) {
     about: project.industry,
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Proyectos", item: `${SITE_URL}/proyectos` },
+      { "@type": "ListItem", position: 3, name: project.client, item: `${SITE_URL}/proyectos/${project.slug}` },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       {/* Breadcrumb */}

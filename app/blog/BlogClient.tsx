@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
 import { blogPosts } from "@/data/blog-posts";
@@ -55,15 +56,29 @@ export function BlogClient() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {blogPosts.map((post) => (
-                <div key={post.slug} className="border border-cream/10 p-8">
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group block border border-cream/10 p-8 hover:border-gold/40 transition-colors"
+                >
                   <p className="font-montserrat text-[10px] uppercase tracking-widest text-gold mb-4">
                     {post.category}
                   </p>
-                  <h2 className="font-cardo text-2xl text-cream mb-4">{post.title}</h2>
+                  <h2 className="font-cardo text-2xl text-cream mb-4 group-hover:text-gold transition-colors">
+                    {post.title}
+                  </h2>
                   <p className="font-montserrat text-xs text-cream/50 leading-relaxed">
                     {post.excerpt}
                   </p>
-                </div>
+                  <p className="mt-6 font-montserrat text-[10px] uppercase tracking-widest text-cream/30">
+                    {new Date(post.date).toLocaleDateString("es-AR", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}{" "}
+                    · {t.blog.readMore} →
+                  </p>
+                </Link>
               ))}
             </div>
           )}
