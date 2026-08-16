@@ -1,10 +1,19 @@
+const isDev = process.env.NODE_ENV === "development";
+
+// Dev-only CSP relaxations. Next's dev server evaluates modules through eval()
+// (Fast Refresh / react-refresh runtime) and talks to HMR over a websocket, so
+// without these the client bundle throws before hydrating and the page is left
+// as inert server HTML. Production keeps the strict policy unchanged.
+const devScriptSrc = isDev ? " 'unsafe-eval'" : "";
+const devConnectSrc = isDev ? " ws://localhost:* http://localhost:*" : "";
+
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://connect.facebook.net",
+  `script-src 'self' 'unsafe-inline'${devScriptSrc} https://connect.facebook.net`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://res.cloudinary.com https://www.facebook.com",
   "font-src 'self' data:",
-  "connect-src 'self' https://formspree.io https://www.facebook.com",
+  `connect-src 'self' https://formspree.io https://www.facebook.com${devConnectSrc}`,
   "frame-src 'none'",
   "form-action 'self' https://formspree.io",
   "base-uri 'self'",
