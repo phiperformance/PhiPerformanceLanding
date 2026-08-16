@@ -41,6 +41,30 @@ export const es = {
       title: "Un ecosistema end-to-end.",
       cta: "Ver todos los servicios",
     },
+    architecture: {
+      eyebrow: "Arquitectura Digital",
+      title: "Una web linda no vende. Una bien construida, sí.",
+      body: "Antes de invertir un peso en Ads, tu sitio tiene que estar preparado para recibir el tráfico. Eso es arquitectura digital: la estructura técnica que sostiene los resultados, no la decoración que los promete.",
+      items: [
+        {
+          title: "Tracking que atribuye",
+          body: "Meta Pixel, Conversions API y Google Analytics instalados y verificados. Si no podés medir de dónde viene cada lead, no estás invirtiendo: estás apostando.",
+        },
+        {
+          title: "SEO técnico desde la base",
+          body: "Estructura semántica, metadatos, sitemap y datos estructurados. Google entiende tu sitio antes de que le pidas que te posicione.",
+        },
+        {
+          title: "Velocidad real",
+          body: "Core Web Vitals optimizados. Cada segundo de carga se lleva una parte de tu inversión publicitaria antes de que alguien vea la oferta.",
+        },
+        {
+          title: "Estructura para convertir",
+          body: "Mobile-first, jerarquía clara y un solo camino a la acción. La página existe para que el visitante haga algo, no para que scrollee.",
+        },
+      ],
+      cta: "Ver propuestas y precios",
+    },
     projects: {
       eyebrow: "Proyectos",
       title: "Casos reales.",
@@ -133,6 +157,142 @@ export const es = {
     cta: "Consultar por este servicio",
     painPoints: "¿Cuándo necesitás este servicio?",
     includes: "Qué incluye",
+  },
+
+  architecture: {
+    breadcrumb: "Arquitectura Digital",
+    hero: {
+      eyebrow: "Arquitectura Digital",
+      headline: "Tu sitio web no es un folleto. Es infraestructura.",
+      body: "Podés conseguir una web barata en una semana. Es una plantilla comprada, con tu logo pegado arriba, alojada en un servidor compartido y sin nadie que la mantenga después de la entrega. Funciona — hasta que necesitás que haga algo: recibir tráfico de Ads, medir conversiones, aparecer en Google, sostener una campaña.",
+      note: "No decimos que esté mal. Decimos que es otra cosa. Nosotros construimos la base que aguanta la inversión que vas a poner arriba.",
+      ctaPrimary: "Ver propuestas",
+      ctaSecondary: "Hacé tu consulta",
+    },
+    plans: {
+      eyebrow: "Dos propuestas",
+      title: "Elegí por alcance, no por precio.",
+      fromLabel: "Desde",
+      setupLabel: "Setup",
+      monthlyLabel: "Mantenimiento",
+      monthlySuffix: "/mes",
+      purposeLabel: "Para qué sirve",
+      includesLabel: "Qué incluye",
+      deliveryLabel: "Entrega estimada",
+      cta: "Consultar por esta propuesta",
+      note: "Los dos precios son \"Desde\": el punto de partida, no un precio cerrado. El presupuesto final se dibuja sobre tu proyecto — páginas adicionales, integraciones o funcionalidades específicas ajustan el número. Preferimos aclararlo acá y no después. Los valores están expresados en USD como referencia; el pago en pesos se calcula con la cotización del día del pago.",
+      items: [
+        {
+          name: "Landing Estratégica",
+          tagline: "Una página. Un objetivo. Cero distracción.",
+          setupPrice: "USD 250",
+          monthlyPrice: "USD 35",
+          purpose:
+            "Captar leads o sostener una campaña de Ads con una sola página de alto impacto. Es la pieza que convierte el clic que ya pagaste.",
+          includes: [
+            "Diseño a medida — no plantilla",
+            "Mobile-first, que es por donde llega el tráfico de Meta Ads",
+            "Integración directa con WhatsApp",
+            "Formulario de contacto conectado y probado",
+            "Meta Pixel y Google Analytics configurados y verificados",
+            "SEO técnico básico",
+            "Hosting premium con backups automáticos",
+            "Dominio registrado a tu nombre",
+          ],
+          delivery: "5 a 7 días hábiles",
+        },
+        {
+          name: "Sitio Institucional",
+          tagline: "Arquitectura digital completa.",
+          setupPrice: "USD 500",
+          monthlyPrice: "USD 60",
+          purpose:
+            "Negocios que necesitan presencia completa y una base sobre la que apoyar campañas sostenidas en el tiempo, no una acción puntual.",
+          includes: [
+            "Todo lo de la Landing Estratégica",
+            "Hasta 6-7 secciones, ampliables según alcance",
+            "SEO técnico avanzado: datos estructurados, sitemap y Core Web Vitals",
+            "Integraciones con CRM y email marketing",
+            "Blog opcional con CMS, para cargar contenido sin depender de nosotros",
+          ],
+          delivery: "10 a 15 días hábiles",
+        },
+      ],
+    },
+    detail: {
+      eyebrow: "Sin buzzwords",
+      title: "Qué significa cada cosa.",
+      body: "Todo lo que aparece en las propuestas, explicado en criollo.",
+      items: [
+        {
+          term: "Diseño a medida",
+          body: "Partimos de tu negocio, tu oferta y tu competencia. No compramos un template y le cambiamos los colores: la estructura de la página se define después de entender qué tiene que lograr.",
+        },
+        {
+          term: "Tracking configurado",
+          body: "Meta Pixel con Conversions API y Google Analytics 4, instalados y verificados con eventos reales, no solo PageView. Probamos que cada conversión llegue antes de entregarte el sitio.",
+        },
+        {
+          term: "SEO técnico",
+          body: "Metadatos, jerarquía semántica de encabezados, sitemap, robots.txt, canonicals y datos estructurados. Es lo que hace que Google pueda leerte; el posicionamiento después se trabaja con contenido.",
+        },
+        {
+          term: "Velocidad de carga",
+          body: "Optimización de imágenes, carga diferida y Core Web Vitals medidos con Lighthouse. El objetivo es que el sitio esté usable en menos de dos segundos en 4G.",
+        },
+        {
+          term: "Hosting premium con backups",
+          body: "Infraestructura con CDN global, certificado SSL y backups automáticos. No es un hosting compartido de tres dólares al mes donde tu sitio convive con otros cien.",
+        },
+        {
+          term: "Dominio a tu nombre",
+          body: "El dominio se registra con tus datos y queda bajo tu titularidad desde el día uno. No es un préstamo.",
+        },
+        {
+          term: "Mantenimiento mensual",
+          body: "La regla es simple: si el cambio lleva menos de una hora — actualizar textos, precios, fotos, testimonios — va incluido en la mensualidad. Si es más grande — una sección nueva, un rediseño — se cotiza aparte y te pasamos el número antes de tocar nada. Incluye además hosting, monitoreo de uptime, actualizaciones de seguridad y backups.",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "Preguntas",
+      title: "Lo que todos preguntan.",
+      items: [
+        {
+          q: "¿Por qué USD 250 y no $50.000 como me cotizaron por ahí?",
+          a: "Porque no es el mismo producto. Por $50.000 conseguís una plantilla comprada con tu logo pegado arriba, hosting compartido y ningún soporte después de la entrega. Acá pagás diseño a medida sobre tu negocio, infraestructura premium con backups y CDN, tracking verificado y alguien que atiende cuando algo se rompe. Si lo que buscás es lo más barato posible, esta no es nuestra propuesta — y está bien, es otra categoría de producto. Nosotros trabajamos con negocios que van a poner plata en Ads y necesitan que la página aguante.",
+        },
+        {
+          q: "¿Qué cubre exactamente el mantenimiento mensual?",
+          a: "La regla de la hora: si el cambio lleva menos de una hora — textos, precios, fotos, testimonios, un dato de contacto — está incluido. Si es más grande — una sección nueva, un rediseño, una integración — se cotiza aparte y te pasamos el presupuesto antes de empezar. La mensualidad cubre además hosting, certificado SSL, backups automáticos, actualizaciones de seguridad y monitoreo de uptime.",
+        },
+        {
+          q: "¿El dominio y el hosting quedan a mi nombre?",
+          a: "Sí. El dominio se registra con tus datos, en una cuenta tuya, y sos el titular desde el día uno. Si mañana querés mudarte a otro proveedor o trabajar con otra agencia, te llevás el dominio y el sitio sin pedirnos permiso ni pagar un rescate. Es una decisión deliberada: no queremos clientes atados, queremos clientes que se quedan porque el trabajo funciona.",
+        },
+        {
+          q: "¿Los precios y la mensualidad se mantienen en el tiempo?",
+          a: "El precio del setup queda fijo desde que confirmás el proyecto: lo que cotizamos es lo que pagás, aunque el dólar se mueva durante el desarrollo. La mensualidad se revisa cada 6 meses y cualquier ajuste te lo avisamos con 30 días de anticipación. No aumenta de un mes al otro sin aviso.",
+        },
+        {
+          q: "¿Cómo es el proceso de pago?",
+          a: "50% al confirmar el proyecto y 50% contra entrega, antes de publicar. La mensualidad de mantenimiento arranca el mes siguiente al lanzamiento, no desde el día de la firma: no te cobramos mantenimiento de algo que todavía no está online. Los precios están expresados en USD como referencia; el pago en pesos se calcula con la cotización del dólar del día en que pagás.",
+        },
+        {
+          q: "¿Qué pasa si en algún momento dejo de pagar el mantenimiento?",
+          a: "Te lo decimos sin vueltas. El dominio es tuyo y no se toca. El código del sitio también: te lo entregamos para que lo alojes donde quieras. Lo que se corta es lo que cubre la mensualidad — hosting en nuestra infraestructura, backups, monitoreo, actualizaciones y los cambios incluidos. Si querés discontinuar, coordinamos la migración a tu propio hosting con 30 días de aviso y el sitio sigue online del otro lado. No apagamos nada de un día para el otro ni usamos tu sitio como rehén.",
+        },
+      ],
+    },
+    cta: {
+      title: "¿Arrancamos?",
+      body: "Contanos qué necesitás y te pasamos un presupuesto a medida en 48hs.",
+      ctaPrimary: "Escribinos por WhatsApp",
+      ctaSecondary: "Ir a Contacto",
+    },
+    whatsappMessage:
+      "Hola, vi la sección de Arquitectura Digital en su web y quiero consultar por un sitio.",
+    whatsappPlanMessage: "Hola, vi su web y me interesa la propuesta de",
   },
 
   projects: {

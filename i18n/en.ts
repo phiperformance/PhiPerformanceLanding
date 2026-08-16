@@ -41,6 +41,30 @@ export const en = {
       title: "An end-to-end ecosystem.",
       cta: "See all services",
     },
+    architecture: {
+      eyebrow: "Digital Architecture",
+      title: "A pretty site doesn't sell. A well-built one does.",
+      body: "Before you spend a single peso on Ads, your site has to be ready to receive the traffic. That's digital architecture: the technical structure that holds up the results, not the decoration that promises them.",
+      items: [
+        {
+          title: "Tracking that attributes",
+          body: "Meta Pixel, Conversions API, and Google Analytics installed and verified. If you can't measure where each lead comes from, you're not investing: you're betting.",
+        },
+        {
+          title: "Technical SEO from the ground up",
+          body: "Semantic structure, metadata, sitemap, and structured data. Google understands your site before you ask it to rank you.",
+        },
+        {
+          title: "Real speed",
+          body: "Optimized Core Web Vitals. Every second of load time eats part of your ad spend before anyone even sees the offer.",
+        },
+        {
+          title: "Built to convert",
+          body: "Mobile-first, clear hierarchy, and a single path to action. The page exists so the visitor does something, not so they scroll.",
+        },
+      ],
+      cta: "See proposals and pricing",
+    },
     projects: {
       eyebrow: "Projects",
       title: "Real cases.",
@@ -133,6 +157,142 @@ export const en = {
     cta: "Inquire about this service",
     painPoints: "When do you need this service?",
     includes: "What's included",
+  },
+
+  architecture: {
+    breadcrumb: "Digital Architecture",
+    hero: {
+      eyebrow: "Digital Architecture",
+      headline: "Your website isn't a brochure. It's infrastructure.",
+      body: "You can get a cheap website in a week. It's a purchased template with your logo pasted on top, hosted on a shared server, with nobody maintaining it after delivery. It works — until you need it to do something: receive Ads traffic, measure conversions, show up on Google, hold up a campaign.",
+      note: "We're not saying that's wrong. We're saying it's a different thing. We build the foundation that holds the investment you're about to put on top of it.",
+      ctaPrimary: "See proposals",
+      ctaSecondary: "Send us a message",
+    },
+    plans: {
+      eyebrow: "Two proposals",
+      title: "Choose by scope, not by price.",
+      fromLabel: "From",
+      setupLabel: "Setup",
+      monthlyLabel: "Maintenance",
+      monthlySuffix: "/mo",
+      purposeLabel: "What it's for",
+      includesLabel: "What's included",
+      deliveryLabel: "Estimated delivery",
+      cta: "Inquire about this proposal",
+      note: "Both prices are \"From\": a starting point, not a closed price. The final quote is drawn around your project — extra pages, integrations, or specific features move the number. We'd rather say it here than later. Values are expressed in USD as a reference; payment in pesos is calculated at the exchange rate on the day of payment.",
+      items: [
+        {
+          name: "Strategic Landing",
+          tagline: "One page. One objective. Zero distraction.",
+          setupPrice: "USD 250",
+          monthlyPrice: "USD 35",
+          purpose:
+            "Capture leads or support an Ads campaign with a single high-impact page. It's the piece that converts the click you already paid for.",
+          includes: [
+            "Custom design — not a template",
+            "Mobile-first, which is where Meta Ads traffic lands",
+            "Direct WhatsApp integration",
+            "Contact form, connected and tested",
+            "Meta Pixel and Google Analytics configured and verified",
+            "Basic technical SEO",
+            "Premium hosting with automatic backups",
+            "Domain registered in your name",
+          ],
+          delivery: "5 to 7 business days",
+        },
+        {
+          name: "Institutional Site",
+          tagline: "Complete digital architecture.",
+          setupPrice: "USD 500",
+          monthlyPrice: "USD 60",
+          purpose:
+            "Businesses that need a full presence and a base to support sustained campaigns over time, not a one-off action.",
+          includes: [
+            "Everything in the Strategic Landing",
+            "Up to 6-7 sections, expandable by scope",
+            "Advanced technical SEO: structured data, sitemap, and Core Web Vitals",
+            "CRM and email marketing integrations",
+            "Optional blog with CMS, so you can publish without depending on us",
+          ],
+          delivery: "10 to 15 business days",
+        },
+      ],
+    },
+    detail: {
+      eyebrow: "No buzzwords",
+      title: "What each item actually means.",
+      body: "Everything listed in the proposals, explained in plain language.",
+      items: [
+        {
+          term: "Custom design",
+          body: "We start from your business, your offer, and your competition. We don't buy a template and swap the colors: the page structure is defined after understanding what it has to achieve.",
+        },
+        {
+          term: "Configured tracking",
+          body: "Meta Pixel with Conversions API and Google Analytics 4, installed and verified with real events, not just PageView. We test that every conversion lands before handing you the site.",
+        },
+        {
+          term: "Technical SEO",
+          body: "Metadata, semantic heading hierarchy, sitemap, robots.txt, canonicals, and structured data. It's what lets Google read you; ranking is then worked through content.",
+        },
+        {
+          term: "Load speed",
+          body: "Image optimization, lazy loading, and Core Web Vitals measured with Lighthouse. The goal is a site usable in under two seconds on 4G.",
+        },
+        {
+          term: "Premium hosting with backups",
+          body: "Infrastructure with a global CDN, SSL certificate, and automatic backups. Not a three-dollar shared host where your site lives alongside a hundred others.",
+        },
+        {
+          term: "Domain in your name",
+          body: "The domain is registered with your details and stays under your ownership from day one. It's not a loan.",
+        },
+        {
+          term: "Monthly maintenance",
+          body: "The rule is simple: if a change takes less than an hour — updating text, prices, photos, testimonials — it's included in the monthly fee. If it's bigger — a new section, a redesign — it's quoted separately and we send you the number before touching anything. It also covers hosting, uptime monitoring, security updates, and backups.",
+        },
+      ],
+    },
+    faq: {
+      eyebrow: "Questions",
+      title: "What everyone asks.",
+      items: [
+        {
+          q: "Why USD 250 and not the far cheaper quote I got elsewhere?",
+          a: "Because it isn't the same product. For a rock-bottom price you get a purchased template with your logo pasted on top, shared hosting, and no support after delivery. Here you're paying for custom design built around your business, premium infrastructure with backups and CDN, verified tracking, and someone who answers when something breaks. If what you want is the cheapest option possible, this isn't our proposal — and that's fine, it's a different product category. We work with businesses that are going to put money into Ads and need the page to hold up.",
+        },
+        {
+          q: "What exactly does the monthly maintenance cover?",
+          a: "The one-hour rule: if a change takes less than an hour — text, prices, photos, testimonials, a contact detail — it's included. If it's bigger — a new section, a redesign, an integration — it's quoted separately and we send you the estimate before starting. The monthly fee also covers hosting, SSL certificate, automatic backups, security updates, and uptime monitoring.",
+        },
+        {
+          q: "Do the domain and hosting stay in my name?",
+          a: "Yes. The domain is registered with your details, in an account of yours, and you're the owner from day one. If tomorrow you want to move to another provider or work with another agency, you take the domain and the site with you — no permission needed, no ransom to pay. It's a deliberate decision: we don't want clients who are locked in, we want clients who stay because the work works.",
+        },
+        {
+          q: "Do the prices and the monthly fee stay the same over time?",
+          a: "The setup price is locked in the moment you confirm the project: what we quote is what you pay, even if the exchange rate moves during development. The monthly fee is reviewed every 6 months, and any adjustment is communicated 30 days in advance. It never goes up from one month to the next without notice.",
+        },
+        {
+          q: "How does payment work?",
+          a: "50% on confirming the project and 50% on delivery, before going live. The maintenance fee starts the month after launch, not from the day you sign: we don't charge maintenance on something that isn't online yet. Prices are expressed in USD as a reference; payment in pesos is calculated at the exchange rate on the day you pay.",
+        },
+        {
+          q: "What happens if at some point I stop paying for maintenance?",
+          a: "We'll tell you straight. The domain is yours and doesn't get touched. So is the site's code: we hand it over so you can host it wherever you want. What stops is what the monthly fee covers — hosting on our infrastructure, backups, monitoring, updates, and the included changes. If you want to discontinue, we coordinate the migration to your own hosting with 30 days' notice and the site stays online on the other side. We don't switch anything off overnight or hold your site hostage.",
+        },
+      ],
+    },
+    cta: {
+      title: "Shall we start?",
+      body: "Tell us what you need and we'll send a custom quote within 48 hours.",
+      ctaPrimary: "Message us on WhatsApp",
+      ctaSecondary: "Go to Contact",
+    },
+    whatsappMessage:
+      "Hi, I saw the Digital Architecture section on your site and I'd like to ask about a website.",
+    whatsappPlanMessage: "Hi, I saw your site and I'm interested in the proposal for",
   },
 
   projects: {

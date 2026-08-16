@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { HeroHome } from "@/components/sections/HeroHome";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { ArchitectureSection } from "@/components/sections/ArchitectureSection";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -81,6 +82,7 @@ export default function HomePage() {
       <HeroHome />
       <ValueSection />
       <ServicesGrid />
+      <ArchitectureSection />
       <ProjectsGrid featuredOnly />
       <CtaBanner />
       <SocialProof />
