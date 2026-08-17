@@ -37,6 +37,9 @@ function formatDate(iso: string): string {
     day: "numeric",
     month: "long",
     year: "numeric",
+    // `iso` is a plain YYYY-MM-DD, parsed as UTC midnight. Without this it
+    // renders as the previous day in AR (UTC-3).
+    timeZone: "UTC",
   });
 }
 

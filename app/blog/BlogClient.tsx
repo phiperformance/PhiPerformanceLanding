@@ -75,6 +75,9 @@ export function BlogClient() {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
+                      // post.date is a plain YYYY-MM-DD, parsed as UTC midnight.
+                      // Without this it renders as the previous day in AR (UTC-3).
+                      timeZone: "UTC",
                     })}{" "}
                     · {t.blog.readMore} →
                   </p>

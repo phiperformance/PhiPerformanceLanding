@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
     metaTitle: "¿Cuánto invertir en Meta Ads? Guía para negocios en Córdoba",
     excerpt:
       "La pregunta que todo negocio se hace antes de pautar. La respuesta honesta no es un número: es un método para calcular tu presupuesto según tu negocio.",
-    date: "2026-07-11",
+    date: "2026-08-06",
     author: "Phi Performance Marketing",
     category: "Performance Ads",
     keywords: [
@@ -169,7 +169,7 @@ export const blogPosts: BlogPost[] = [
     metaTitle: "Meta Ads vs Google Ads: Guía para Pymes de Córdoba",
     excerpt:
       "Meta Ads y Google Ads resuelven problemas distintos. Te contamos cómo elegir la plataforma correcta según el momento de compra de tu cliente en Córdoba.",
-    date: "2026-07-11",
+    date: "2026-07-15",
     author: "Phi Performance Marketing",
     category: "Paid Media",
     keywords: [
@@ -262,7 +262,7 @@ export const blogPosts: BlogPost[] = [
     metaTitle: "Cuánto Tarda una Campaña de Ads en Dar Resultados",
     excerpt:
       "No hay una fecha mágica. Te explicamos las etapas reales de una campaña de Meta o Google Ads y por qué apurar los tiempos sale caro.",
-    date: "2026-07-11",
+    date: "2026-06-18",
     author: "Phi Performance Marketing",
     category: "Estrategia Publicitaria",
     keywords: [
@@ -333,7 +333,7 @@ export const blogPosts: BlogPost[] = [
     metaTitle: "Por Qué mi Web no Aparece en Google - Guía SEO Local",
     excerpt:
       "Si buscás tu negocio y no aparecés, no sos invisible por mala suerte. Te contamos las razones técnicas más comunes y cómo empezar a solucionarlo.",
-    date: "2026-07-11",
+    date: "2026-05-26",
     author: "Phi Performance Marketing",
     category: "SEO y Presencia Digital",
     keywords: [
@@ -410,7 +410,7 @@ export const blogPosts: BlogPost[] = [
     metaTitle: "Qué es un CRM y Cuándo Implementarlo en tu Pyme",
     excerpt:
       "Un CRM no es solo para empresas grandes. Te explicamos qué hace realmente y en qué momento del crecimiento de tu negocio empieza a ser necesario.",
-    date: "2026-07-11",
+    date: "2026-04-30",
     author: "Phi Performance Marketing",
     category: "CRM y Ventas",
     keywords: [
@@ -478,7 +478,7 @@ export const blogPosts: BlogPost[] = [
     metaTitle: "Cómo Saber si tu Agencia de Marketing Está Funcionando",
     excerpt:
       "Likes y alcance no pagan cuentas. Te contamos qué preguntarle a tu agencia y qué métricas importan de verdad para saber si el trabajo rinde.",
-    date: "2026-07-11",
+    date: "2026-04-02",
     author: "Phi Performance Marketing",
     category: "Transparencia y Métricas",
     keywords: [
