@@ -10,10 +10,22 @@ export interface Service {
   slug: string;
   icon: string;
   category: "setup" | "ads" | "content" | "web" | "crm";
+  /**
+   * Set when the service's detail lives on a dedicated page instead of the
+   * generic /servicios/[slug] template. Those slugs are skipped by
+   * generateStaticParams and by the sitemap, and the old /servicios/<slug>
+   * URL is 301'd to this path in next.config.mjs.
+   */
+  href?: string;
   translations: {
     es: ServiceTranslation;
     en: ServiceTranslation;
   };
+}
+
+/** Where a service card should link to. */
+export function serviceHref(service: Service): string {
+  return service.href ?? `/servicios/${service.slug}`;
 }
 
 export const services: Service[] = [
@@ -162,6 +174,7 @@ export const services: Service[] = [
     slug: "desarrollo-web",
     icon: "◻︎",
     category: "web",
+    href: "/arquitectura-digital",
     translations: {
       es: {
         title: "Desarrollo Web",

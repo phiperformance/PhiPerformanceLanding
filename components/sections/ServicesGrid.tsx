@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
-import { services } from "@/data/services";
+import { services, serviceHref } from "@/data/services";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Button } from "@/components/ui/Button";
 
@@ -33,7 +33,7 @@ export function ServicesGrid() {
                 className="group relative bg-black border border-cream/10 transition-all duration-300 hover:bg-gold hover:border-gold"
               >
                 <Link
-                  href={`/servicios/${service.slug}`}
+                  href={serviceHref(service)}
                   className="flex flex-col gap-4 p-8 h-full"
                 >
                   <span className="text-3xl text-gold group-hover:text-black transition-colors duration-300">{service.icon}</span>

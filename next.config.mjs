@@ -44,6 +44,16 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // Folded into the dedicated /arquitectura-digital offer page.
+        source: "/servicios/desarrollo-web",
+        destination: "/arquitectura-digital",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

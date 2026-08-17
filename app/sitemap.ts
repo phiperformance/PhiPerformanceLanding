@@ -17,12 +17,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/politica-de-cookies`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
-    url: `${SITE_URL}/servicios/${s.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
+  // Services with a dedicated page are listed under their own URL above, not
+  // under /servicios/<slug> (which now redirects).
+  const serviceRoutes: MetadataRoute.Sitemap = services
+    .filter((s) => !s.href)
+    .map((s) => ({
+      url: `${SITE_URL}/servicios/${s.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }));
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
     url: `${SITE_URL}/proyectos/${p.slug}`,

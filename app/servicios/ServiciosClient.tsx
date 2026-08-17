@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/context";
-import { services } from "@/data/services";
+import { services, serviceHref } from "@/data/services";
 import { Button } from "@/components/ui/Button";
 import { whatsappLink } from "@/lib/constants";
 import { trackEvent } from "@/lib/track";
@@ -80,7 +80,7 @@ export function ServiciosClient() {
                     {tr.description}
                   </p>
                   <div className="flex flex-col gap-3">
-                    <Button href={`/servicios/${service.slug}`} variant="outline" size="sm">
+                    <Button href={serviceHref(service)} variant="outline" size="sm">
                       {t.ui.learnMore}
                     </Button>
                     <Button href={waLink} variant="ghost" size="sm" external onClick={() => trackEvent("Contact")}>

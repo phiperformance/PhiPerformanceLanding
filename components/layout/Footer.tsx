@@ -8,8 +8,7 @@ const serviceLinks = [
   { href: "/servicios/arquitectura-digital", label: "Arquitectura Digital" },
   { href: "/servicios/performance-ads", label: "Performance Ads" },
   { href: "/servicios/ingenieria-de-contenido", label: "Ingeniería de Contenido" },
-  { href: "/servicios/desarrollo-web", label: "Desarrollo Web" },
-  { href: "/arquitectura-digital", label: "Sitios Web y Landings" },
+  { href: "/arquitectura-digital", label: "Desarrollo Web" },
   { href: "/servicios/crm-kommo", label: "CRM Kommo" },
 ];
 
