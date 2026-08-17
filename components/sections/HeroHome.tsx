@@ -33,10 +33,17 @@ export function HeroHome() {
   const waLink = whatsappLink(t.contact.whatsappMessage);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-start md:items-center justify-center overflow-hidden bg-black pt-28 md:pt-0">
       {/* Backdrop paints immediately; fades out once the 3D scene is up */}
       <HeroBackdrop faded={ready3D} />
       {enable3D && <Hero3D onReady={() => setReady3D(true)} />}
+
+      {/* Darkens the 3D scene behind the text so it stays readable over the
+          bust without touching the scene itself */}
+      <div
+        className="absolute inset-0 z-[5] pointer-events-none bg-[radial-gradient(ellipse_60%_55%_at_50%_48%,rgba(2,2,2,0.65),transparent_75%)]"
+        aria-hidden="true"
+      />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -50,7 +57,7 @@ export function HeroHome() {
         </motion.p>
 
         {/* LCP element — rendered visible from first paint (no entrance fade) */}
-        <h1 className="font-cardo text-5xl md:text-7xl lg:text-8xl text-cream leading-tight mb-8">
+        <h1 className="font-cardo text-4xl md:text-7xl lg:text-8xl text-cream leading-tight mb-8 break-words">
           {t.home.hero.headline}
         </h1>
 

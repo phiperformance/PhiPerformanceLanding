@@ -2,7 +2,7 @@
 
 import { Canvas, useThree } from "@react-three/fiber";
 import { Component, ReactNode, Suspense, useEffect, useRef, useState } from "react";
-import { PhiSymbol } from "./PhiSymbol";
+import { RhetoricianScene } from "./RhetoricianScene";
 
 class WebGLErrorBoundary extends Component<
   { children: ReactNode },
@@ -126,7 +126,7 @@ export function SceneWrapper({ onReady }: { onReady?: () => void }) {
             onCreated={() => requestAnimationFrame(() => onReady?.())}
           >
             <FrameDriver active={active} fps={30} />
-            <PhiSymbol mobile={mobile} />
+            <RhetoricianScene mobile={mobile} />
           </Canvas>
         </Suspense>
       </div>

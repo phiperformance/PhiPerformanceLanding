@@ -132,6 +132,14 @@ export function Footer() {
             <p className="font-montserrat text-[10px] text-cream/20">
               © {year} Phi Performance Marketing. {t.footer.rights}
             </p>
+            <a
+              href="https://sketchfab.com/3d-models/rhetorician-a89f035291d843069d73988cc0e25399"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-montserrat text-[10px] text-cream/20 hover:text-gold transition-colors"
+            >
+              &ldquo;Rhetorician&rdquo; by engine9, CC BY-SA 4.0
+            </a>
           </div>
         </div>
       </div>
