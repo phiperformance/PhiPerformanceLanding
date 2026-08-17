@@ -38,12 +38,13 @@ export const services: Service[] = [
         title: "Arquitectura Digital",
         tagline: "El cimiento antes de la escala.",
         description:
-          "Ordenamos todos tus activos digitales para que trabajen como un sistema. Píxeles configurados, dominios verificados, Business Manager estructurado y Google Business optimizado.",
+          "Ordenamos todos tus activos digitales para que trabajen como un sistema. Píxeles configurados, dominios verificados, Business Manager estructurado, Google Business y redes sociales optimizadas.",
         features: [
           "Configuración y verificación de Meta Business Manager",
           "Instalación y auditoría de píxeles (Meta, Google, GA4)",
-          "Configuración de dominio y DNS",
+          "Creación y optimización de perfiles en redes sociales",
           "Optimización de Google Business Profile",
+          "Configuración de dominio y DNS",
           "Auditoría de activos digitales existentes",
           "Documento de arquitectura entregable",
         ],
@@ -58,12 +59,13 @@ export const services: Service[] = [
         title: "Digital Architecture",
         tagline: "The foundation before the scale.",
         description:
-          "We organize all your digital assets so they work as a system. Properly configured pixels, verified domains, structured Business Manager, and optimized Google Business.",
+          "We organize all your digital assets so they work as a system. Properly configured pixels, verified domains, structured Business Manager, optimized Google Business, and optimized social media.",
         features: [
           "Meta Business Manager setup and verification",
           "Pixel installation and audit (Meta, Google, GA4)",
-          "Domain and DNS configuration",
+          "Social media profile creation and optimization",
           "Google Business Profile optimization",
+          "Domain and DNS configuration",
           "Existing digital assets audit",
           "Deliverable architecture document",
         ],
