@@ -178,7 +178,7 @@ export const services: Service[] = [
     translations: {
       es: {
         title: "Desarrollo Web",
-        tagline: "Sitios que convierten, no solo que se ven bien.",
+        tagline: "La base que sostiene tráfico, contenido y campañas.",
         description:
           "Desarrollamos landing pages y sitios web orientados a conversión. Velocidad, SEO técnico y UX diseñados para llevar al visitante a la acción.",
         features: [
@@ -198,7 +198,7 @@ export const services: Service[] = [
       },
       en: {
         title: "Web Development",
-        tagline: "Sites that convert, not just look good.",
+        tagline: "The foundation that holds up traffic, content, and campaigns.",
         description:
           "We develop conversion-oriented landing pages and websites. Speed, technical SEO, and UX designed to move visitors to action.",
         features: [

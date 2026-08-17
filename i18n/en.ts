@@ -14,25 +14,37 @@ export const en = {
       eyebrow: "Digital Performance Boutique",
       headline: "Digital architecture that converts.",
       subheadline:
-        "Your business deserves a solid digital foundation. We design the architecture that turns visits into clients and actions into measurable results.",
+        "You invest in content, you invest in Ads, and the visit lands on a site that converts none of it. We build the structure that makes that investment worth it.",
       ctaPrimary: "Send us a message",
       ctaSecondary: "See services",
     },
+    pain: {
+      eyebrow: "Does this sound familiar?",
+      title: "Before you invest in marketing, look at this.",
+      items: [
+        "Your Ads traffic lands and bounces.",
+        "Nobody knows what happened to the lead who filled out the form.",
+        "The site was built two years ago and today nobody knows who can even touch it.",
+        "Google can't find you, not even when someone searches your business name.",
+      ],
+      transition:
+        "It all comes from the same root: there's no digital foundation holding up the rest.",
+    },
     value: {
       eyebrow: "Why Φ",
-      title: "Not a freelancer. Not a cold agency.",
+      title: "Diagnosis before budget.",
       items: [
         {
           title: "Diagnosis first",
-          body: "Before executing any action, we understand your business, your funnel, and your competition. No strategy is valid without an honest diagnosis. That's our foundation.",
+          body: "We understand your business, your funnel, and your competition before touching anything. An honest diagnosis is the base of any strategy worth executing afterward.",
         },
         {
           title: "Precision over volume",
-          body: "We don't run campaigns for the sake of it. Every channel, every asset, and every dollar spent answers to a concrete objective. Less noise, more real profitability.",
+          body: "Every channel, every asset, and every dollar spent answers to a concrete objective: less noise, more real profitability.",
         },
         {
           title: "Full transparency",
-          body: "CPL, CPA, ROI, ROAS: the numbers are yours and you share them with us in real time. No filters, no polish. Only data that helps you make better decisions.",
+          body: "CPL, CPA, ROI, ROAS: the numbers are yours and we share them in real time. In web development, that same transparency means the domain and hosting are in your name from day one.",
         },
       ],
     },
@@ -43,8 +55,8 @@ export const en = {
     },
     architecture: {
       eyebrow: "Digital Architecture",
-      title: "A pretty site doesn't sell. A well-built one does.",
-      body: "Before you spend a single peso on Ads, your site has to be ready to receive the traffic. That's digital architecture: the technical structure that holds up the results, not the decoration that promises them.",
+      title: "We build what holds up the rest.",
+      body: "We structure your site to carry what comes next: the content we produce, the campaigns we run, the traffic that starts arriving. Without a foundation, all of that collapses.",
       items: [
         {
           title: "Tracking that attributes",
@@ -71,28 +83,10 @@ export const en = {
       cta: "See all projects",
     },
     cta: {
-      title: "Ready to scale?",
-      body: "Tell us about your business. In 24 hours you get a diagnosis.",
+      title: "Is your site ready for what you spend driving traffic to it?",
+      body: "Tell us how your site is doing today. In 24 hours you get a concrete diagnosis.",
       ctaPrimary: "Message us on WhatsApp",
       ctaSecondary: "Go to Contact",
-    },
-    social: {
-      eyebrow: "The difference",
-      title: "How we work.",
-      items: [
-        {
-          stat: "No templates.",
-          body: "Every strategy starts from scratch. Your business, your funnel, your competition — nothing is copied from another client.",
-        },
-        {
-          stat: "No filters.",
-          body: "The data is always yours. CPL, CPA, ROAS in real time, with no spin or convenient interpretation.",
-        },
-        {
-          stat: "No delays.",
-          body: "Diagnosis in 24 hours. If there's a fit, you get a concrete proposal before the week is out.",
-        },
-      ],
     },
   },
 

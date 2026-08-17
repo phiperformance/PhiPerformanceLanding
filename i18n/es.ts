@@ -14,25 +14,37 @@ export const es = {
       eyebrow: "Boutique de Performance Digital",
       headline: "Arquitectura digital que convierte.",
       subheadline:
-        "Tu negocio merece una base digital sólida. Diseñamos la arquitectura que convierte visitas en clientes y acciones en resultados medibles.",
+        "Invertís en contenido, invertís en Ads, y la visita llega a una web que no la convierte en nada. Construimos la estructura que hace que esa inversión valga la pena.",
       ctaPrimary: "Hacé tu consulta",
       ctaSecondary: "Ver servicios",
     },
+    pain: {
+      eyebrow: "¿Te pasa esto?",
+      title: "Antes de invertir en marketing, mirá esto.",
+      items: [
+        "Tu tráfico de Ads llega y rebota.",
+        "Nadie sabe qué pasó con el lead que llenó el formulario.",
+        "La web se armó hace dos años y hoy no sabés ni quién la puede tocar.",
+        "Google no te encuentra ni buscando el nombre de tu negocio.",
+      ],
+      transition:
+        "Todo eso tiene la misma raíz: no hay una base digital que sostenga el resto.",
+    },
     value: {
       eyebrow: "Por qué Φ",
-      title: "No somos freelancers. No somos una agencia fría.",
+      title: "Diagnóstico antes que presupuesto.",
       items: [
         {
           title: "Diagnóstico primero",
-          body: "Antes de ejecutar cualquier acción, entendemos tu negocio, tu embudo y tu competencia. No hay estrategia válida sin un diagnóstico honesto. Esa es nuestra base.",
+          body: "Entendemos tu negocio, tu embudo y tu competencia antes de tocar nada. Un diagnóstico honesto es la base de cualquier estrategia que después vale la pena ejecutar.",
         },
         {
           title: "Precisión sobre volumen",
-          body: "No corremos campañas por correrlas. Cada canal, cada pieza y cada peso invertido responde a un objetivo concreto. Menos ruido, más rentabilidad real.",
+          body: "Cada canal, cada pieza y cada peso invertido responde a un objetivo concreto: menos ruido, más rentabilidad real.",
         },
         {
           title: "Transparencia total",
-          body: "CPL, CPA, ROI, ROAS: los números son tuyos y los compartís con nosotros en tiempo real. Sin filtros, sin maquillaje. Solo datos que te ayudan a decidir mejor.",
+          body: "CPL, CPA, ROI, ROAS: los números son tuyos y los compartimos en tiempo real. En desarrollo web, esa misma transparencia significa que el dominio y el hosting quedan a tu nombre desde el día uno.",
         },
       ],
     },
@@ -43,8 +55,8 @@ export const es = {
     },
     architecture: {
       eyebrow: "Arquitectura Digital",
-      title: "Una web linda no vende. Una bien construida, sí.",
-      body: "Antes de invertir un peso en Ads, tu sitio tiene que estar preparado para recibir el tráfico. Eso es arquitectura digital: la estructura técnica que sostiene los resultados, no la decoración que los promete.",
+      title: "Construimos lo que sostiene el resto.",
+      body: "Estructuramos tu web para que aguante lo que viene después: el contenido que generamos, las campañas que corremos, el tráfico que empieza a llegar. Sin base, todo eso se cae.",
       items: [
         {
           title: "Tracking que atribuye",
@@ -71,28 +83,10 @@ export const es = {
       cta: "Ver todos los proyectos",
     },
     cta: {
-      title: "¿Listo para escalar?",
-      body: "Contanos tu negocio. En 24hs tenés un diagnóstico.",
+      title: "¿Tu web está lista para lo que gastás en traerle tráfico?",
+      body: "Contanos cómo está tu web hoy. En 24hs tenés un diagnóstico concreto.",
       ctaPrimary: "Escribinos por WhatsApp",
       ctaSecondary: "Ir a Contacto",
-    },
-    social: {
-      eyebrow: "La diferencia",
-      title: "Así trabajamos.",
-      items: [
-        {
-          stat: "Sin templates.",
-          body: "Cada estrategia parte de cero. Tu negocio, tu embudo, tu competencia — nada se copia de otro cliente.",
-        },
-        {
-          stat: "Sin filtros.",
-          body: "Los datos son tuyos, siempre. CPL, CPA, ROAS en tiempo real, sin maquillaje ni interpretación conveniente.",
-        },
-        {
-          stat: "Sin esperas.",
-          body: "Diagnóstico en 24 horas. Si hay fit, tenés una propuesta concreta antes de que termine la semana.",
-        },
-      ],
     },
   },
 

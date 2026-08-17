@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { HeroHome } from "@/components/sections/HeroHome";
+import { PainSection } from "@/components/sections/PainSection";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { ArchitectureSection } from "@/components/sections/ArchitectureSection";
 import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
@@ -44,48 +45,16 @@ function ValueSection() {
   );
 }
 
-function SocialProof() {
-  const { t } = useLang();
-  return (
-    <section className="py-32 px-6 bg-black">
-      <div className="max-w-7xl mx-auto">
-        <SectionTitle
-          eyebrow={t.home.social.eyebrow}
-          title={t.home.social.title}
-          align="center"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px mt-20 border border-cream/10">
-          {t.home.social.items.map((item, i) => (
-            <motion.div
-              key={i}
-              className="bg-black p-10 border border-cream/10 text-center"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <p className="font-cardo text-4xl text-gold mb-4">{item.stat}</p>
-              <p className="font-montserrat text-xs text-cream/50 leading-relaxed">
-                {item.body}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function HomePage() {
   return (
     <>
       <HeroHome />
-      <ValueSection />
-      <ServicesGrid />
+      <PainSection />
       <ArchitectureSection />
+      <ValueSection />
       <ProjectsGrid featuredOnly />
+      <ServicesGrid />
       <CtaBanner />
-      <SocialProof />
     </>
   );
 }
