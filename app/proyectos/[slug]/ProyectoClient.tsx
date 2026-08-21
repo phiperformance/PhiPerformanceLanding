@@ -113,27 +113,17 @@ export function ProyectoClient({ project }: { project: Project }) {
       </div>
 
       {(project.instagramUrl || project.websiteUrl) && (
-        <div className="px-6 bg-black mt-6">
-          <div className="max-w-5xl mx-auto flex flex-wrap gap-6">
+        <div className="px-6 bg-black mt-10">
+          <div className="max-w-5xl mx-auto flex flex-wrap gap-4">
             {project.instagramUrl && (
-              <Link
-                href={project.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-montserrat text-[11px] uppercase tracking-widest text-gold hover:text-cream transition-colors"
-              >
+              <Button href={project.instagramUrl} variant="outline" size="md" external>
                 Ver en Instagram →
-              </Link>
+              </Button>
             )}
             {project.websiteUrl && (
-              <Link
-                href={project.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-montserrat text-[11px] uppercase tracking-widest text-gold hover:text-cream transition-colors"
-              >
+              <Button href={project.websiteUrl} variant="outline" size="md" external>
                 Ver sitio web →
-              </Link>
+              </Button>
             )}
           </div>
         </div>
